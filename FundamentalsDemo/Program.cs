@@ -63,7 +63,30 @@ namespace FundamentalsDemo
                 Console.WriteLine(val.Key + " : " + val.Value);
             }
 
+            int result = DiceRoll();
+            while(result != 5)
+            {
+                if(result == 3)
+                {
+                    Console.WriteLine("Threeeeeeeeee!");
+                }
+                else if (result == 1)
+                {
+                    Console.WriteLine("Uno!");
+                }
+                else {
+                    Console.WriteLine("Try Again");
+                }
+                // Console.WriteLine("You rolled: " + result);
+                result = DiceRoll();
+            }
+            Console.WriteLine("You rolled 5!");
+        }
 
+        static int DiceRoll()
+        {
+            Random rand = new Random();
+            return rand.Next(1,7);
         }
     }
 }

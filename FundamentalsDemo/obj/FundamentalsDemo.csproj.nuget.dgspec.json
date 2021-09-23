@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\cfrie\\desktop\\c#\\FundamentalsDemo\\FundamentalsDemo.csproj": {}
+    "C:\\Users\\cfrie\\Desktop\\C#\\fundamentalsdemo\\FundamentalsDemo.csproj": {}
   },
   "projects": {
-    "C:\\Users\\cfrie\\desktop\\c#\\FundamentalsDemo\\FundamentalsDemo.csproj": {
+    "C:\\Users\\cfrie\\Desktop\\C#\\fundamentalsdemo\\FundamentalsDemo.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\cfrie\\desktop\\c#\\FundamentalsDemo\\FundamentalsDemo.csproj",
+        "projectUniqueName": "C:\\Users\\cfrie\\Desktop\\C#\\fundamentalsdemo\\FundamentalsDemo.csproj",
         "projectName": "FundamentalsDemo",
-        "projectPath": "C:\\Users\\cfrie\\desktop\\c#\\FundamentalsDemo\\FundamentalsDemo.csproj",
+        "projectPath": "C:\\Users\\cfrie\\Desktop\\C#\\fundamentalsdemo\\FundamentalsDemo.csproj",
         "packagesPath": "C:\\Users\\cfrie\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\cfrie\\desktop\\c#\\FundamentalsDemo\\obj\\",
+        "outputPath": "C:\\Users\\cfrie\\Desktop\\C#\\fundamentalsdemo\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
           "C:\\Users\\cfrie\\AppData\\Roaming\\NuGet\\NuGet.Config"
