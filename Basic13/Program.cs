@@ -19,6 +19,8 @@ namespace Basic13
             SquareArrayValues(new int[] {1,5,10,-10});
             EliminateNegatives(new int[] {1,5,10,-2});
             MinMaxAverage(new int[] {1,2,3,4,5});
+            ShiftValues(new int[] {1,5,10,7,-2});
+            NumToString(new int[] {-1,-3,2});
         }
         public static void PrintNumbers()
         {
@@ -126,6 +128,27 @@ namespace Basic13
             Console.WriteLine($"min: {min}");
             Console.WriteLine($"max: {max}");
             Console.WriteLine($"avg: {sum / numbers.Length}");
+        }
+        public static void ShiftValues(int[] numbers)
+        {
+            Array.Copy(numbers, 1, numbers, 
+            0, numbers.Length -1);
+            numbers[numbers.Length -1] = 0;
+            Console.WriteLine(string.Join(", ", numbers));
+        }
+        public static object[] NumToString(int[] numbers)
+        {
+            object[] objNumbers = new object[numbers.Length];
+            for(int i = 0; i < numbers.Length; i++){
+                if(numbers[i] < 0){
+                    objNumbers[i] = "Dojo";
+                }
+                else{
+                    objNumbers[i] = numbers[i];
+                }
+            }
+            Console.WriteLine(string.Join(", ", objNumbers));
+            return objNumbers;
         }
     }
 }
