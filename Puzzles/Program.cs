@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections.Generic;
 
 namespace Puzzles
 {
@@ -6,9 +7,12 @@ namespace Puzzles
     {
         static void Main(string[] args)
         {
-            RandomArray();
+            // RandomArray();
+            // Console.WriteLine(TossCoin());
+            // TossMultipleCoins(5);
+            Names();
         }
-        static int[] RandomArray()
+        public static int[] RandomArray()
         {
         int[] randArray = new int[10];
         Random rand = new Random();
@@ -36,5 +40,50 @@ namespace Puzzles
         return randArray;
         }
 
+        public static string TossCoin()
+        {
+            string result = "Heads";
+            Random toss = new Random();
+            if(toss.Next(0, 2) == 0){
+                result = "Heads";
+            }
+            else{
+                result = "Tails";
+            }
+            return result;
+        }
+        public static double TossMultipleCoins(int num)
+        {
+            int HeadCount = 0;
+            for(int i = 0; i < num; i++){
+                string result = TossCoin();
+                if(result == "Heads"){
+                    HeadCount += 1;
+                }
+            }
+            double ratio = (double)HeadCount / num;
+            Console.WriteLine($"Heads ratio is {ratio}");
+            return ratio;
+        }
+
+        public static List<string> Names()
+        {
+            List<string> ClassNames = new List<string>() {"Todd", "Tiffany", "Charlie", "Geneva", "Sydney"};
+            Random random = new Random();
+            for(int i = 0; i < ClassNames.Count; i++){
+                int rnd = random.Next(i + 1);
+                string value = ClassNames[rnd];
+                ClassNames[rnd] = ClassNames[i];
+                ClassNames[i] = value;
+            }
+            
+        
+            foreach(string name in ClassNames)
+            {
+                Console.WriteLine(name);
+            }
+            ClassNames.RemoveAll(name => name.Length <= 5);
+            return ClassNames;
+        }
     }
 }
