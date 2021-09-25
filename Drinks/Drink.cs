@@ -26,7 +26,14 @@ namespace Drinks
         public string name;
         public bool isHot;
         public string color;
-        public int calories;
+        private int calories;
+        
+        
+        // properties
+        public int Calories
+        {
+            get { return calories; }
+        }
         
         
         // functions (methods)
@@ -39,6 +46,13 @@ namespace Drinks
         {
             Console.WriteLine($"{name}, {isHot}, {color}, {calories}");
         }
-        // properties
+
+        
+        public void addSugar(int amount)
+        {
+            calories += amount;
+            Console.WriteLine($"You added sugar to your {name}, bringing the calorie count to {Calories}");
+             //This alters the private version of calories. The public version still just returns the value of the private one.
+        }
     }
 }

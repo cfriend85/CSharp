@@ -11,6 +11,9 @@ namespace Drinks
             Drink Coffee = new Drink("Coffee", true, "Mud", 50);
             Coffee.displayDrink();
             Coffee.sip();
+            Console.WriteLine(Coffee.Calories);
+            Coffee.name = "Super delicious Coffee";
+            Coffee.addSugar(10);
         }
     }
 }
