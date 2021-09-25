@@ -6,8 +6,11 @@ namespace Drinks
     {
         static void Main(string[] args)
         {
-            Drink Coffee = new Drink();
+            Drink Water = new Drink();
+            Water.displayDrink();
+            Drink Coffee = new Drink("Coffee", true, "Mud", 50);
             Coffee.displayDrink();
+            Coffee.sip();
         }
     }
 }

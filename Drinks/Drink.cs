@@ -13,11 +13,22 @@ namespace Drinks
             calories = 0;
 
         }
+        public Drink(string n, bool hot, string clr, int cals) //Param names cannot match attribute names
+        {
+            name = n;
+            isHot = hot;
+            color = clr;
+            calories = cals;
+        }
+        
+        
         // attributes (fields)
         public string name;
         public bool isHot;
         public string color;
         public int calories;
+        
+        
         // functions (methods)
         public void sip()
         {
