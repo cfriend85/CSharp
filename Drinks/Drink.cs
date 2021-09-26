@@ -44,7 +44,14 @@ namespace Drinks
 
         public void displayDrink()
         {
-            Console.WriteLine($"{name}, {isHot}, {color}, {calories}");
+            string temp = isHot.ToString();
+            if(temp == "True"){
+                temp = "Hot";
+            }
+            else{
+                temp = "Cold";
+            }
+            Console.WriteLine($"{name}, {temp}, {color}, {calories}");
         }
 
         
