@@ -9,13 +9,21 @@ namespace Drinks
             Drink Water = new Drink();
             Water.displayDrink();
             Drink Coffee = new Drink("Coffee", true, "Mud", 50);
-            Drink Soda = new Drink("Pepsi", false, "Black", 150);
+            Drink Juice = new Drink("Orange Juice", false, "Yellow", 39);
             Coffee.displayDrink();
-            Soda.displayDrink();
+            Juice.displayDrink();
             Coffee.sip();
             Console.WriteLine(Coffee.Calories);
             Coffee.name = "Super delicious Coffee";
             Coffee.addSugar(10);
+
+            Soda Pepsi = new Soda("Pepsi", "Black", 150, 40);
+            Pepsi.displayDrink();
+            Pepsi.sip();
+
+            Dessert chocoShake = new Dessert("Chocolate Shake", false, "Brown", 300, true, "Chocolate", false);
+            chocoShake.displayDrink();
+            chocoShake.sip();
         }
     }
 }

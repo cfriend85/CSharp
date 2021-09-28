@@ -37,7 +37,7 @@ namespace Drinks
         
         
         // functions (methods)
-        public void sip()
+        public virtual void sip()
         {
             Console.WriteLine($"Taking a sip of {name}");
         }
