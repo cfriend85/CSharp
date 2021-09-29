@@ -1,0 +1,15 @@
+﻿using System;
+
+namespace Human
+{
+    class Program
+    {
+        static void Main(string[] args)
+        {
+            Human oConner = new Human("O'Conner");
+            oConner.displayHuman();
+            Human Toretto = new Human("Toretto", 100, 1000, 50, 500);
+            oConner.Attack(Toretto);
+        }
+    }
+}
