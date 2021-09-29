@@ -20,14 +20,13 @@ namespace HungryNinja
 
         public void Eat(Food item)
         {
-            if(isFull()){
-                Console.WriteLine("Ninja fucking full");
-            }
-            else{
+            while(!isFull()){
                 calorieIntake += item.Calories;
                 FoodHistory.Add(item);
                 Console.WriteLine($"{item.Name}, {item.isSpicy}, {item.isSweet}");
+                Console.WriteLine(isFull());
             }
+            Console.WriteLine("Ninja Full!");
         }
     }
 }
