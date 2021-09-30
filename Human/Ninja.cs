@@ -27,6 +27,7 @@ namespace Human
         {
             target.takeDamage(5);
             health += 5;
+            Console.WriteLine($"{name} stole 5 health from {target.name} and added it to their health!");
         }
     }
 }

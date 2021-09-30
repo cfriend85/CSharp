@@ -44,6 +44,7 @@ namespace Human
         public int takePotion(int potion)
         {
             health += potion;
+            Console.WriteLine($"{name} took potion and restored thier health to {Health}!");
             return Health;
         }
         public string name;

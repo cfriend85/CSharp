@@ -22,7 +22,7 @@ namespace Human
         public string Meditate()
         {
             health = 200;
-            return $"Mediation complete, health restored to {health}";
+            return $"Mediation complete, {name}'s health restored to {health}";
         }
     }
 }
