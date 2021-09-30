@@ -2,7 +2,7 @@ using System;
 
 namespace Drinks
 {
-    public class Drink
+    public abstract class Drink
     {
         // constructor
         public Drink()

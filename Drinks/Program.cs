@@ -7,16 +7,20 @@ namespace Drinks
     {
         static void Main(string[] args)
         {
-            Drink Water = new Drink();
-            Water.displayDrink();
-            Drink Coffee = new Drink("Coffee", true, "Mud", 50);
-            Drink Juice = new Drink("Orange Juice", false, "Yellow", 39);
-            Coffee.displayDrink();
-            Juice.displayDrink();
-            Coffee.sip();
-            Console.WriteLine(Coffee.Calories);
-            Coffee.name = "Super delicious Coffee";
-            Coffee.addSugar(10);
+            //  ABSTRACT CLASS no longer allows basic instances of the Drink class.
+
+            // YOU MUST BE SPECIFIC!! Like on line 25 how it says Soda Pepsi = new Soda() that is explicitly telling it that it is a Soda.
+            
+            // Drink Water = new Drink();
+            // Water.displayDrink();
+            // Drink Coffee = new Drink("Coffee", true, "Mud", 50);
+            // Drink Juice = new Drink("Orange Juice", false, "Yellow", 39);
+            // Coffee.displayDrink();
+            // Juice.displayDrink();
+            // Coffee.sip();
+            // Console.WriteLine(Coffee.Calories);
+            // Coffee.name = "Super delicious Coffee";
+            // Coffee.addSugar(10);
 
             Soda Pepsi = new Soda("Pepsi", "Black", 150, 40);
             Pepsi.displayDrink();
