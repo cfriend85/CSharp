@@ -27,12 +27,24 @@ namespace Human
             Console.WriteLine($"{name} has {strength} strength, {intelligence} intelligence, {dexterity} dexterity and {health} health");
         }
 
-        public int Attack(Human target)
+        public virtual int Attack(Human target)
         {
             int damage = strength * 5;
             target.health -= damage;
             Console.WriteLine($"{name} attacked {target.name} and dealt {damage} damage! Leaving {target.name} with {target.health} health!");
             return target.health;
+        }
+
+        public int takeDamage(int damage)
+        {
+            health -= damage;
+            return Health; 
+        }
+
+        public int takePotion(int potion)
+        {
+            health += potion;
+            return Health;
         }
         public string name;
         public int strength;

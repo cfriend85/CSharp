@@ -10,6 +10,8 @@ namespace Human
             oConner.displayHuman();
             Human Toretto = new Human("Toretto", 100, 1000, 50, 500);
             oConner.Attack(Toretto);
+            Wizard Gandalf = new Wizard("Gandalf");
+            Gandalf.Attack(Toretto);
         }
     }
 }
