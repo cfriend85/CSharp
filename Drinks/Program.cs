@@ -24,6 +24,9 @@ namespace Drinks
             Dessert chocoShake = new Dessert("Chocolate Shake", false, "Brown", 300, true, "Chocolate", false);
             chocoShake.displayDrink();
             chocoShake.sip();
+            
+            
+            Pepsi.addAlcohol(0.1);
         }
     }
 }
