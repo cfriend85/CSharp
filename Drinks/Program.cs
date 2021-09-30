@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections.Generic;
 
 namespace Drinks
 {
@@ -27,6 +28,20 @@ namespace Drinks
             
             
             Pepsi.addAlcohol(0.1);
+
+
+        // IENUMERABLE - This allows you to build a list of mulitiple types by building the list with it's Parent elements (Drink).
+        // You can only do things with each that all of them have in common. i.e Drink class does not contain the IAlcoholic interface therefore
+        // you cannot run d.addAlcohol().
+            List<Drink> DrinkMenu = new List<Drink>();
+            DrinkMenu.Add(Pepsi);
+            DrinkMenu.Add(chocoShake);
+
+            foreach(Drink d in DrinkMenu)
+            {
+                d.displayDrink();
+                d.sip();
+            }
         }
     }
 }
