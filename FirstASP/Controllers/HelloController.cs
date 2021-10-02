@@ -6,15 +6,21 @@ namespace FirstASP.Controllers
     {
         [HttpGet]
         [Route("")]
-        public string Index()
+        public ViewResult Index()
         {
-            return "Hello from the Index controller!";
+            return View(); //if view is named the same as the action this is going to imply to render that view
         }
 
         [HttpGet("First")]
         public string First()
         {
             return "Hello from another page!";
+        }
+
+        [HttpGet("Second")]
+        public int Second()
+        {
+            return 2;
         }
     }
 }

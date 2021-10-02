@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h1>Hello from your first cshtml file!</h1>
+    @{
+        List<string> myList = new List<string>
+        {
+            "Hello",
+            "World",
+            "Pizza"
+        };
+        foreach(string word in myList)
+        {
+            <p>@word</p> //if you're just referencing one variable you don't have to put curly braces if you're doing more you'll need them
+        }
+    }
+</body>
+</html>
