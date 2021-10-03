@@ -1,4 +1,5 @@
 using Microsoft.AspNetCore.Mvc;
+using System;
 
 namespace FirstASP.Controllers
 {
@@ -28,6 +29,22 @@ namespace FirstASP.Controllers
         public string Landing()
         {
             return "You were redirected!";
+        }
+
+        [HttpGet("form")]
+        public IActionResult Form()
+        {
+            return View();
+        }
+
+        [HttpPost("sendData")]
+        public IActionResult sendData(string TextField, int NumberField) //params are the names of the inputs on the form
+        {
+            Console.WriteLine($"Text: {TextField}, Number: {NumberField}");
+            // return RedirectToAction("Index");
+            ViewBag.Text = TextField;
+            ViewBag.Number = NumberField;
+            return View("Results");
         }
 
         [HttpGet("Redirect")]
