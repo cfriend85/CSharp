@@ -26,6 +26,7 @@ namespace FirstASP
             {
                 app.UseDeveloperExceptionPage();
             }
+            app.UseStaticFiles();
             app.UseMvc();
 
             // app.UseRouting();

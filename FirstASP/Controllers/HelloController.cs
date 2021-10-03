@@ -6,7 +6,7 @@ namespace FirstASP.Controllers
     {
         [HttpGet]
         [Route("")]
-        public ViewResult Index()
+        public ViewResult Index() //IActionResult could be used as the return type if you wanted to return other things than just a "view"
         {
             return View(); //if view is named the same as the action this is going to imply to render that view
         }
@@ -21,6 +21,18 @@ namespace FirstASP.Controllers
         public int Second()
         {
             return 2;
+        }
+
+        [HttpGet("Landing")]
+        public string Landing()
+        {
+            return "You were redirected!";
+        }
+
+        [HttpGet("Redirect")]
+        public RedirectToActionResult Redirect()
+        {
+            return RedirectToAction("Landing");
         }
     }
 }
