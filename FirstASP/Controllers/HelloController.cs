@@ -8,6 +8,7 @@ namespace FirstASP.Controllers
         [Route("")]
         public ViewResult Index() //IActionResult could be used as the return type if you wanted to return other things than just a "view"
         {
+            ViewBag.WhateverYouWantToCallIt = "Some interesting Fact about an otter";
             return View(); //if view is named the same as the action this is going to imply to render that view
         }
 
