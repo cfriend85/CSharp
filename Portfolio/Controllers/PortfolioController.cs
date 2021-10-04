@@ -1,14 +1,22 @@
 using Microsoft.AspNetCore.Mvc;
 using System;
+using System.Collections.Generic;
 
 namespace Portfolio.Controllers
 {
     public class PortfolioController : Controller
     {
         [HttpGet("")]
-        public string Index()
+        public ViewResult Index()
         {
-            return "This is my index!";
+            List<string> myWords = new List<string>();
+            myWords.Add("Hot");
+            myWords.Add("Pocket");
+            myWords.Add("Smores");
+
+            ViewBag.Words = myWords;
+            
+            return View();
         }
 
         [HttpGet("projects")]
