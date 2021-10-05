@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="~/css/style.css">
+</head>
+<body>
+    <form action="processForm" method="post" id="form">
+        <label for="name">Your Name</label>
+        <input type="text" name="name"><br>
+        <label for="location">Your Location</label>
+        <select name="location">
+            <option value="Dallas">Dallas</option>
+            <option value="Boston">Boston</option>
+            <option value="Seattle">Seattle</option>
+            <option value="Arlington">Arlington</option>
+        </select><br>
+        <label for="language">Your Favorite Language</label>
+        <select name="language">
+            <option value="JavaScript">JavaScript</option>
+            <option value="Python">Python</option>
+            <option value="Ruby">Ruby</option>
+            <option value="C#">C#</option>
+        </select><br>
+        <label for="comment">Comment</label><br>
+        <textarea name="comment"cols="40" rows="5"></textarea><br>
+        <input type="submit" value="Submit">
+    </form>
+</body>
+</html>
