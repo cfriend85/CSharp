@@ -32,6 +32,8 @@ namespace FirstMVC.Controllers
         [HttpPost("Add")]
         public IActionResult Add(Pet newPet) //this uses the Pet object from the form as a parameter
         {
+            if(ModelState.IsValid)
+            {
             Console.WriteLine("You added a pet *********************");
             Console.WriteLine($"Name: {newPet.Name}, Species: {newPet.Species}, Age: {newPet.Age}");
             // ViewBag.Pet = newPet; this passes the whole Pet object into the ViewBag and on the View you'd need something like @ViewBag.Pet.Name and possibly some logic if it's empty or not
@@ -39,6 +41,11 @@ namespace FirstMVC.Controllers
             ViewBag.Species = newPet.Species;
             ViewBag.Age = newPet.Age;
             return View("Form");
+            } else {
+                Console.WriteLine("Something went wrong with your model");
+                return View("Form");
+            }
+
         }
     }
 }

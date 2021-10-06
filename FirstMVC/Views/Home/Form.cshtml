@@ -1,20 +1,25 @@
+@model Pet
+
 <div>
     <h1>Tell me about your pet!</h1>
 
     <form action="Add" method="post">
         <div class="form-group">
             <label for="name">Name</label>
-            <input type="text" name="name" class="form-control"><br>
+            <input asp-for="Name" class="form-control"><br>
+            <span asp-validation-for="Name" class="text-danger"></span>
         </div>
 
         <div class="form-group">
             <label for="name">Species</label>
-            <input type="text" name="species" class="form-control"><br>
+            <input asp-for="Species" class="form-control"><br>
+            <span asp-validation-for="Species" class="text-danger"></span>
         </div>
 
         <div class="form-group">
             <label for="name">Age</label>
-            <input type="number" name="age" class="form-control"><br>
+            <input asp-for="Age" class="form-control"><br>
+            <span asp-validation-for="Age" class="text-danger"></span>
         </div>
         <input type="submit" value="submit" class="btn btn-primary">
     </form><br>
