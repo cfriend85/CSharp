@@ -22,11 +22,23 @@ namespace FirstMVC.Controllers
         {
             return View();
         }
-
-        [ResponseCache(Duration = 0, Location = ResponseCacheLocation.None, NoStore = true)]
-        public IActionResult Error()
+        
+        [HttpGet("Form")]
+        public IActionResult Form()
         {
-            return View(new ErrorViewModel { RequestId = Activity.Current?.Id ?? HttpContext.TraceIdentifier });
+            return View();
+        }
+
+        [HttpPost("Add")]
+        public IActionResult Add(Pet newPet) //this uses the Pet object from the form as a parameter
+        {
+            Console.WriteLine("You added a pet *********************");
+            Console.WriteLine($"Name: {newPet.Name}, Species: {newPet.Species}, Age: {newPet.Age}");
+            // ViewBag.Pet = newPet; this passes the whole Pet object into the ViewBag and on the View you'd need something like @ViewBag.Pet.Name and possibly some logic if it's empty or not
+            ViewBag.Name = newPet.Name;
+            ViewBag.Species = newPet.Species;
+            ViewBag.Age = newPet.Age;
+            return View("Form");
         }
     }
 }
