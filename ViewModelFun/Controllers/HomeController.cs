@@ -23,5 +23,12 @@ namespace ViewModelFun.Controllers
             string paragraph = "A whole bunch of txt";
             return View("Index", paragraph);
         }
+
+        [HttpGet("Numbers")]
+        public IActionResult Numbers()
+        {
+            int[] numbers = new int[] {1,2,3,4,5};
+            return View("Numbers", numbers);
+        }
     }
 }
