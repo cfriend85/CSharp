@@ -30,5 +30,26 @@ namespace ViewModelFun.Controllers
             int[] numbers = new int[] {1,2,3,4,5};
             return View("Numbers", numbers);
         }
+
+        [HttpGet("User")]
+        public IActionResult SingleUser()
+        {
+            string name = "Charles Friend";
+            return View("User", name);
+        }
+
+        [HttpGet("Users")]
+        public IActionResult Users()
+        {
+            List<string> names = new List<string>()
+            {
+                "Derek Carr",
+                "Alvin Kamara",
+                "James Robinson",
+                "Justin Jefferson",
+                "Marvin Jones",
+            };
+            return View("Users", names);
+        }
     }
 }
