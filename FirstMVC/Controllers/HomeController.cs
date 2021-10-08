@@ -20,7 +20,13 @@ namespace FirstMVC.Controllers
 
         public IActionResult Index()
         {
-            return View();
+            List<string> petNames = new List<string>(){
+                "Buddy",
+                "Fluffy",
+                "Cat",
+                "Spot"
+            };
+            return View(petNames); //pass the List into the view
         }
         
         [HttpGet("Form")]
@@ -35,17 +41,12 @@ namespace FirstMVC.Controllers
             if(ModelState.IsValid)
             {
             Console.WriteLine("You added a pet *********************");
-            Console.WriteLine($"Name: {newPet.Name}, Species: {newPet.Species}, Age: {newPet.Age}");
-            // ViewBag.Pet = newPet; this passes the whole Pet object into the ViewBag and on the View you'd need something like @ViewBag.Pet.Name and possibly some logic if it's empty or not
-            ViewBag.Name = newPet.Name;
-            ViewBag.Species = newPet.Species;
-            ViewBag.Age = newPet.Age;
-            return View("Form");
+            Console.WriteLine($"Name: {newPet.Name}, Species: {newPet.Species}, Age: {newPet.Age}");            
+            return View("Result", newPet);
             } else {
                 Console.WriteLine("Something went wrong with your model");
                 return View("Form");
             }
-
         }
     }
 }
