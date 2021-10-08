@@ -18,15 +18,19 @@ namespace FirstMVC.Controllers
             _logger = logger;
         }
 
+        static List<Pet> myPets = new List<Pet>(){
+        };
+
         public IActionResult Index()
         {
-            List<string> petNames = new List<string>(){
-                "Buddy",
-                "Fluffy",
-                "Cat",
-                "Spot"
-            };
-            return View(petNames); //pass the List into the view
+            // List<string> petNames = new List<string>(){
+            //     "Buddy",
+            //     "Fluffy",
+            //     "Cat",
+            //     "Spot"
+            // };
+            // return View(petNames); //pass the List into the view
+            return View(myPets);
         }
         
         [HttpGet("Form")]
@@ -40,9 +44,10 @@ namespace FirstMVC.Controllers
         {
             if(ModelState.IsValid)
             {
-            Console.WriteLine("You added a pet *********************");
-            Console.WriteLine($"Name: {newPet.Name}, Species: {newPet.Species}, Age: {newPet.Age}");            
-            return View("Result", newPet);
+                Console.WriteLine("You added a pet *********************");
+                Console.WriteLine($"Name: {newPet.Name}, Species: {newPet.Species}, Age: {newPet.Age}");            
+                myPets.Add(newPet);
+                return RedirectToAction("Index");
             } else {
                 Console.WriteLine("Something went wrong with your model");
                 return View("Form");
