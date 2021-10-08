@@ -20,7 +20,8 @@ namespace ViewModelFun.Controllers
 
         public IActionResult Index()
         {
-            return View();
+            string paragraph = "A whole bunch of txt";
+            return View("Index", paragraph);
         }
     }
 }
