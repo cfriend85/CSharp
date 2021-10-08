@@ -32,8 +32,13 @@ namespace NewDojoSurvey.Controllers
         [HttpPost("Add")]
         public IActionResult Add(Survey newSurvey)
         {
+            if(ModelState.IsValid)
+            {
             Console.WriteLine($"Name: {newSurvey.Name}, Location: {newSurvey.Location}, Fav Language: {newSurvey.Language}, Comment: {newSurvey.Comment}");
             return View("Index");
+            } else{
+                return View("Form");
+            }
         }
     }
 }
