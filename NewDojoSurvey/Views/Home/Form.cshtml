@@ -4,6 +4,7 @@
     <div class="form-group">
         <label for="name">Name</label>
         <input asp-for="Name" class="form-control"><br>
+        <span asp-validation-for="Name" class="text-danger"></span>
     </div>
 
     <div class="form-group">
@@ -14,6 +15,7 @@
             <option value="Seattle">Seattle</option>
             <option value="Arlington">Arlington</option>
         </select><br>
+        <span asp-validation-for="Location" class="text-danger"></span>
     </div>
 
     <div class="form-group">
@@ -24,11 +26,13 @@
             <option value="Ruby">Ruby</option>
             <option value="C#">C#</option>
         </select><br>
+        <span asp-validation-for="Language" class="text-danger"></span>
     </div>
 
     <div class="form-group">
         <label for="comment">Comment</label><br>
         <textarea asp-for="Comment"cols="40" rows="5"></textarea><br>
+        <span asp-validation-for="Comment" class="text-danger"></span>
     </div>
         <input type="submit" value="submit" class="btn btn-primary">
 </form><br>
