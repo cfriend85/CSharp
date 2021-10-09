@@ -18,9 +18,12 @@ namespace NewDojoSurvey.Controllers
             _logger = logger;
         }
 
+        static List<Survey> Users = new List<Survey>(){};
+
         public IActionResult Index()
         {
-            return View();
+            Console.WriteLine(Users);
+            return View(Users);
         }
         
         [HttpGet("form")]
@@ -35,7 +38,8 @@ namespace NewDojoSurvey.Controllers
             if(ModelState.IsValid)
             {
             Console.WriteLine($"Name: {newSurvey.Name}, Location: {newSurvey.Location}, Fav Language: {newSurvey.Language}, Comment: {newSurvey.Comment}");
-            return View("Index");
+            Users.Add(newSurvey);
+            return RedirectToAction("Index");
             } else{
                 return View("Form");
             }

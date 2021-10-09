@@ -2,7 +2,28 @@
     ViewData["Title"] = "Home Page";
 }
 
+@model List<Survey>
+
 <div class="text-center">
-    <h1 class="display-4">Welcome</h1>
-    <p>Learn about <a href="https://docs.microsoft.com/aspnet/core">building Web apps with ASP.NET Core</a>.</p>
+    <h1 class="display-4">Dojo Survey!</h1>
+    <h4>Student Results:</h4>
+        <table class="table table-striped">
+        <tr>
+            <th>Name</th>
+            <th>Location</th>
+            <th>Language</th>
+            <th>Comment</th>
+        </tr>
+        @{
+            foreach(Survey u in Model)
+        {
+            <tr>
+                <td>@u.Name</td>
+                <td>@u.Location</td>
+                <td>@u.Language</td>
+                <td>@u.Comment</td>
+            </tr>
+        }
+    }
+    </table>
 </div>
