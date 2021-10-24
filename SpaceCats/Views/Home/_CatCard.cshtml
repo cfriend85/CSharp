@@ -1,0 +1,11 @@
+@model Cat;
+
+<div class="card" style="width: 18rem; display: inline-block">
+    <img class="card-img-top" src="@Model.Image" alt="Space Cat">
+    <div class="card-body">
+        <h5 class="card-title">@Model.Name (@Model.Breed)</h5>
+        <p class="card-text">Lives: @Model.Lives</p>
+        <p class="card-text">Weapon: @Model.Weapon</p>
+        <p class="card-text">Mortal Enemy: @Model.MortalEnemy</p>
+    </div>
+</div>

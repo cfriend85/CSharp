@@ -6,6 +6,7 @@ using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Logging;
 using SpaceCats.Models;
+using Microsoft.AspNetCore.Http;
 
 namespace SpaceCats.Controllers
 {
@@ -22,6 +23,12 @@ namespace SpaceCats.Controllers
 
         public IActionResult Index()
         {
+            if(HttpContext.Session.GetInt32("NumCats") == null)
+            {
+                HttpContext.Session.SetInt32("NumCats", 0);
+            }
+            ViewBag.CatCount = HttpContext.Session.GetInt32("NumCats");
+            ViewBag.AllCats = theCats;
             return View();
         }
 
@@ -31,8 +38,11 @@ namespace SpaceCats.Controllers
             if(ModelState.IsValid)
             {
             theCats.Add(newCat);
+            int numCats = (int)HttpContext.Session.GetInt32("NumCats");
+            HttpContext.Session.SetInt32("NumCats", numCats += 1);
             return RedirectToAction("Index");
             } else {
+                ViewBag.AllCats = theCats;
                 return View("Index");
             }
         }

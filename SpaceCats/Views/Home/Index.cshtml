@@ -40,6 +40,12 @@
             <input type="submit" value="Submit" class="btn btn-primary mt-4">
         </form>
         <hr>
-        <h1>All Space Cats</h1>
+        <h1>All Space Cats (# of Cats: @ViewBag.CatCount)</h1>
+        @{
+            foreach(Cat c in ViewBag.AllCats)
+            {
+                <partial name="_CatCard" model="c"/>
+            }
+        }
     </div>
 </div>
