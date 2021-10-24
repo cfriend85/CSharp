@@ -18,9 +18,23 @@ namespace SpaceCats.Controllers
             _logger = logger;
         }
 
+        static List<Cat> theCats = new List<Cat>(){};
+
         public IActionResult Index()
         {
             return View();
+        }
+
+        [HttpPost("createCat")]
+        public IActionResult createCat(Cat newCat)
+        {
+            if(ModelState.IsValid)
+            {
+            theCats.Add(newCat);
+            return RedirectToAction("Index");
+            } else {
+                return View("Index");
+            }
         }
     }
 }

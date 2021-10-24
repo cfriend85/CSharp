@@ -1,7 +1,6 @@
 ﻿@{
     ViewData["Title"] = "Home Page";
 }
-
 @model Cat;
 
 <div class="text-center">
@@ -11,11 +10,15 @@
             <div class="row">
                 <div class="col-6">
                     <label for="Name">Name</label>
+                    <span asp-validation-for="Name" class="text-danger"></span>
                     <input asp-for="Name" class="form-control">
                     <label for="Breed">Breed</label>
+                    <span asp-validation-for="Breed" class="text-danger"></span>
                     <input asp-for="Breed" class="form-control">
                     <label for="Weapon">Weapon</label>
+                    <span asp-validation-for="Weapon" class="text-danger"></span>
                     <select asp-for="Weapon" class="form-control">
+                        <option disabled selected>--Select a weapon--</option>
                         <option value="Laser Gun">Laser Gun</option>
                         <option value="Plasma Accelerator">Plasma Accelerator</option>
                         <option value="Light Saber">Light Saber</option>
@@ -23,15 +26,20 @@
                     </select>
                 </div>
                 <div class="col-6">
-                    <label for="Galaxy">Galaxy</label>
-                    <input asp-for="Galaxy" class="form-control">
+                    <label for="Image">Image</label>
+                    <span asp-validation-for="Image" class="text-danger"></span>
+                    <input asp-for="Image" class="form-control">
                     <label for="MortalEnemy">Mortal Enemy</label>
+                    <span asp-validation-for="MortalEnemy" class="text-danger"></span>
                     <input asp-for="MortalEnemy" class="form-control">
                     <label for="Lives">Lives</label>
+                    <span asp-validation-for="Lives" class="text-danger"></span>
                     <input asp-for="Lives" class="form-control">
                 </div>
             </div>
             <input type="submit" value="Submit" class="btn btn-primary mt-4">
         </form>
+        <hr>
+        <h1>All Space Cats</h1>
     </div>
 </div>
