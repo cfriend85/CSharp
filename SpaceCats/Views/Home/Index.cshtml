@@ -1,0 +1,37 @@
+﻿@{
+    ViewData["Title"] = "Home Page";
+}
+
+@model Cat;
+
+<div class="text-center">
+    <h1 class="display-4">Space......Cats!</h1>
+    <div class="container">
+        <form action="createCat" method="post">
+            <div class="row">
+                <div class="col-6">
+                    <label for="Name">Name</label>
+                    <input asp-for="Name" class="form-control">
+                    <label for="Breed">Breed</label>
+                    <input asp-for="Breed" class="form-control">
+                    <label for="Weapon">Weapon</label>
+                    <select asp-for="Weapon" class="form-control">
+                        <option value="Laser Gun">Laser Gun</option>
+                        <option value="Plasma Accelerator">Plasma Accelerator</option>
+                        <option value="Light Saber">Light Saber</option>
+                        <option value="Black Hole Generator">Black Hole Generator</option>
+                    </select>
+                </div>
+                <div class="col-6">
+                    <label for="Galaxy">Galaxy</label>
+                    <input asp-for="Galaxy" class="form-control">
+                    <label for="MortalEnemy">Mortal Enemy</label>
+                    <input asp-for="MortalEnemy" class="form-control">
+                    <label for="Lives">Lives</label>
+                    <input asp-for="Lives" class="form-control">
+                </div>
+            </div>
+            <input type="submit" value="Submit" class="btn btn-primary mt-4">
+        </form>
+    </div>
+</div>
