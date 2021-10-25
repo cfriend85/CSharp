@@ -1,0 +1,21 @@
+LINQ
+
+Home controller:
+
+Imagine the DB model was SpaceCat, Fake DB:
+
+SpaceCat[] allCats = new SpaceCat[];
+
+IEnumerable<SpaceCat> orderedByLives = allCats.OrderBy(cats(variable name could be anything) => cats.Lives); LINQ Query
+IEnumerable<SpaceCat> orderedByNames = allCats.OrderBy(cats(variable name could be anything) => cats.Name);  LINQ Query
+
+ViewBag.SpaceCatsLives = orderedByLives;
+ViewBag.SpaceCatsNames = orderedByNames;
+
+<hr> gives you a page break on Views (not LINQ related)
+
+IEnumerable<SpaceCat> DogEnemies = allCats.Where(c => c.MortalEnemy == "Dogs"); LINQ Query WHERE ALWAYS passes back a list even if it's only 1.
+
+SpaceCat Cannon = allCats.FirstOrDefault(b => b.Weapon == "Plasma Cannon"); LINQ Query this is looking for one(or only the first?) and not putting it in a list.
+
+ViewBag.EnemyDogs = DogEnemies;
