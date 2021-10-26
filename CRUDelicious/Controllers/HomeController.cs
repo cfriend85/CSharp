@@ -55,7 +55,7 @@ namespace CRUDelicious.Controllers
         public IActionResult UpdateDish(int DishId)
         {
             Dish DishToEdit = _context.Dishes.FirstOrDefault(d => d.DishId == DishId);
-            @ViewBag.EditDish = DishToEdit;
+            ViewBag.EditDish = DishToEdit;
             return View(DishToEdit);
         }
 
