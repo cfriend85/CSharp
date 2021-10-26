@@ -17,12 +17,6 @@ namespace EFDemo.Controllers
         {
             _context = context;
         }
-        // private readonly ILogger<HomeController> _logger;
-
-        // public HomeController(ILogger<HomeController> logger)
-        // {
-        //     _logger = logger;
-        // }
 
         public IActionResult Index()
         {
@@ -56,6 +50,35 @@ namespace EFDemo.Controllers
         {
             ViewBag.OneGame = _context.Games.FirstOrDefault(g => g.GameId == GameID);
             return View();
+        }
+
+        [HttpGet("delete/{GameID}")]
+        public IActionResult Delete(int GameID) //DELETE
+        {
+            Game gameToDelete = _context.Games.SingleOrDefault(g => g.GameId == GameID);
+            _context.Games.Remove(gameToDelete);
+            _context.SaveChanges();
+            return RedirectToAction("Index");
+        }
+
+        [HttpGet("edit/{GameID}")]
+        public IActionResult UpdateGame(int GameID) //Get update form and prepopulate
+        {
+            Game gameToEdit = _context.Games.FirstOrDefault(g => g.GameId == GameID);
+            return View(gameToEdit);
+        }
+
+        [HttpPost("update/{GameID}")]
+        public IActionResult UpdatedGame(int GameID, Game updatedGame) //ID and form data as params
+        {
+            Game GameToEdit = _context.Games.FirstOrDefault(g => g.GameId == GameID);
+            GameToEdit.Title = updatedGame.Title;
+            GameToEdit.Price = updatedGame.Price;
+            GameToEdit.Rating = updatedGame.Rating;
+            GameToEdit.ReleaseDate = updatedGame.ReleaseDate;
+            GameToEdit.UpdatedAt = DateTime.Now;
+            _context.SaveChanges();
+            return RedirectToAction("Index");
         }
     }
 }

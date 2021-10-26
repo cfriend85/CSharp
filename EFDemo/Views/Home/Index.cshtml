@@ -10,6 +10,7 @@
             <th>Price</th>
             <th>Rating</th>
             <th>Release Date</th>
+            <th>Actions</th>
         </tr>
         @{
             foreach(Game g in ViewBag.AllGames)
@@ -19,6 +20,7 @@
                     <td>$@g.Price</td>
                     <td>@g.Rating</td>
                     <td>@g.ReleaseDate</td>
+                    <td><a href="delete/@g.GameId">Delete</a> <a href="edit/@g.GameId">Update</a></td>
                 </tr>
             }
         }
