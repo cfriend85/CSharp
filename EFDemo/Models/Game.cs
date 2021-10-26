@@ -9,7 +9,7 @@ namespace EFDemo.Models
         public int GameId { get; set; }
         public string Title { get; set; }
         public double Price { get; set; }
-        public string rating { get; set; }
+        public string Rating { get; set; }
         public DateTime ReleaseDate { get; set; }
         public DateTime CreatedAt { get; set; } = DateTime.Now;
         public DateTime UpdatedAt { get; set; } = DateTime.Now;

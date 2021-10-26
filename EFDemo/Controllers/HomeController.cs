@@ -26,7 +26,35 @@ namespace EFDemo.Controllers
 
         public IActionResult Index()
         {
+            //READ ALL
             List<Game> AllGames = _context.Games.ToList();
+            ViewBag.AllGames = AllGames;
+            return View();
+        }
+
+        [HttpGet("AddGame")]
+        public IActionResult AddGame()
+        {
+            return View();
+        }
+
+        [HttpPost("create")]
+        public IActionResult Create(Game newGame) //CREATE
+        {
+            if(ModelState.IsValid)
+            {
+                _context.Add(newGame);
+                _context.SaveChanges();
+            return RedirectToAction("Index");
+            } else {
+                return View("AddGame");
+            }
+        }
+
+        [HttpGet("view/{GameID}")]
+        public IActionResult ViewGame(int GameID) //READ ONE
+        {
+            ViewBag.OneGame = _context.Games.FirstOrDefault(g => g.GameId == GameID);
             return View();
         }
     }
