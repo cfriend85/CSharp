@@ -1,0 +1,34 @@
+@model Dish;
+
+<h1 class="text-center">Add a new dish!</h1>
+<a href="/">Home</a>
+<hr>
+<form action="create" method="post">
+    <div class="form-group">
+        <label for="Name">Name</label>
+        <input asp-for="Name">
+    </div>
+    <div class="form-group">
+        <label for="Chef">Chef</label>
+        <input asp-for="Chef">
+    </div>
+    <div class="form-group">
+        <label for="Tastiness">Tastiness</label>
+        <select asp-for="Tastiness">
+            <option value="1">1</option>
+            <option value="2">2</option>
+            <option value="3">3</option>
+            <option value="4">4</option>
+            <option value="5">5</option>
+        </select>
+    </div>
+    <div class="form-group">
+        <label for="Calories">Calories</label>
+        <input asp-for="Calories">
+    </div>
+    <div class="form-group">
+        <label for="Description">Description</label><br>
+        <textarea asp-for="Description" cols="30" rows="3"></textarea>
+    </div>
+    <input type="submit" value="Add Dish" class="btn btn-primary">
+</form>
