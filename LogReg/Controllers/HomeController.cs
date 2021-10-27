@@ -8,6 +8,7 @@ using Microsoft.Extensions.Logging;
 using LogReg.Models;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.AspNetCore.Identity;
+using Microsoft.AspNetCore.Http;
 
 namespace LogReg.Controllers
 {
@@ -37,6 +38,7 @@ namespace LogReg.Controllers
                     newUser.Password = Hasher.HashPassword(newUser, newUser.Password);
                     _context.Add(newUser);
                     _context.SaveChanges();
+                    HttpContext.Session.SetInt32("LoggedInUser", newUser.UserId);
                     return RedirectToAction("Success");
                 }
             } else {
@@ -62,6 +64,7 @@ namespace LogReg.Controllers
                     ModelState.AddModelError("LEmail", "Invalid login attempt");
                     return View("Index");
                 } else {
+                    HttpContext.Session.SetInt32("LoggedInUser", userInDb.UserId);
                     return RedirectToAction("Success");
                 }
             } else {
@@ -72,7 +75,21 @@ namespace LogReg.Controllers
         [HttpGet("Success")]
         public IActionResult Success()
         {
-            return View();
+            int? loggedIn = HttpContext.Session.GetInt32("LoggedInUser");
+            if(loggedIn != null)
+            {
+                ViewBag.User = _context.Users.FirstOrDefault(a => a.UserId == (int)loggedIn);
+                return View();
+            } else {
+                return RedirectToAction("Index");
+            }
+        }
+
+        [HttpGet("logout")]
+        public IActionResult Logout()
+        {
+            HttpContext.Session.Clear();
+            return RedirectToAction("Index");
         }
     }
 }
