@@ -33,23 +33,6 @@
     </div>
     <div class="col-6">
         <h1>Login</h1>
-        <form action="login" method="post">
-            <div class="form-group">
-                <label for="Email">Email Address</label>
-                <input asp-for="Email" class="form-control">
-                <span asp-validation-for="Email" class="text-danger"></span>
-            </div>
-            <div class="form-group">
-                <label for="Password">Password</label>
-                <input asp-for="Password" class="form-control">
-                <span asp-validation-for="Password" class="text-danger"></span>
-            </div>
-            <div class="form-group">
-                <label for="Confirm">Confirm Password</label>
-                <input asp-for="Confirm" class="form-control">
-                <span asp-validation-for="Confirm" class="text-danger"></span>
-            </div>
-            <input type="submit" value="Login" class="btn btn-success">
-        </form>
+        <partial name="_LoginPartial" />
     </div>
 </div>

@@ -44,11 +44,30 @@ namespace LogReg.Controllers
             }
         }
 
-        // [HttpPost("login")]
-        // public IActionResult Login(User newUser)
-        // {
-
-        // }
+        [HttpPost("login")]
+        public IActionResult Login(LoginUser logUser)
+        {
+            if(ModelState.IsValid)
+            {
+                User userInDb = _context.Users.FirstOrDefault(e => e.Email == logUser.LEmail);
+                if(userInDb == null)
+                {
+                    ModelState.AddModelError("LEmail", "Invalid login attempt");
+                    return View("Index");
+                }
+                PasswordHasher<LoginUser> Hasher = new PasswordHasher<LoginUser>();
+                PasswordVerificationResult result = Hasher.VerifyHashedPassword(logUser, userInDb.Password, logUser.LPassword);
+                if(result == 0)
+                {
+                    ModelState.AddModelError("LEmail", "Invalid login attempt");
+                    return View("Index");
+                } else {
+                    return RedirectToAction("Success");
+                }
+            } else {
+                return View("Index");
+            }
+        }
 
         [HttpGet("Success")]
         public IActionResult Success()
