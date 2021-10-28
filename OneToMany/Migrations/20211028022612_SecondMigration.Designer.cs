@@ -2,53 +2,22 @@
 using System;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using OneToMany.Models;
 
 namespace OneToMany.Migrations
 {
     [DbContext(typeof(MyContext))]
-    partial class MyContextModelSnapshot : ModelSnapshot
+    [Migration("20211028022612_SecondMigration")]
+    partial class SecondMigration
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
                 .HasAnnotation("ProductVersion", "3.1.5")
                 .HasAnnotation("Relational:MaxIdentifierLength", 64);
-
-            modelBuilder.Entity("OneToMany.Models.Pet", b =>
-                {
-                    b.Property<int>("PetId")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("int");
-
-                    b.Property<DateTime>("CreatedAt")
-                        .HasColumnType("datetime(6)");
-
-                    b.Property<string>("PetName")
-                        .IsRequired()
-                        .HasColumnType("longtext CHARACTER SET utf8mb4");
-
-                    b.Property<int>("PirateId")
-                        .HasColumnType("int");
-
-                    b.Property<string>("Species")
-                        .IsRequired()
-                        .HasColumnType("longtext CHARACTER SET utf8mb4");
-
-                    b.Property<string>("Trick")
-                        .HasColumnType("longtext CHARACTER SET utf8mb4");
-
-                    b.Property<DateTime>("UpdatedAt")
-                        .HasColumnType("datetime(6)");
-
-                    b.HasKey("PetId");
-
-                    b.HasIndex("PirateId");
-
-                    b.ToTable("Pets");
-                });
 
             modelBuilder.Entity("OneToMany.Models.Pirate", b =>
                 {
@@ -99,15 +68,6 @@ namespace OneToMany.Migrations
                     b.HasKey("ShipId");
 
                     b.ToTable("Ships");
-                });
-
-            modelBuilder.Entity("OneToMany.Models.Pet", b =>
-                {
-                    b.HasOne("OneToMany.Models.Pirate", "Owner")
-                        .WithMany("Pets")
-                        .HasForeignKey("PirateId")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
                 });
 
             modelBuilder.Entity("OneToMany.Models.Pirate", b =>

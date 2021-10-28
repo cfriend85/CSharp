@@ -1,0 +1,34 @@
+@model Pet;
+
+<h3>Add a Pet!</h3>
+<form action="addPet" method="post">
+    <div class="form-group">
+        <label for="Name">Pet Name</label>
+        <input asp-for="PetName" class="form-control">
+        <span asp-validation-for="PetName" class="text-danger"></span>
+    </div>
+    <div class="form-group">
+        <label for="Species">Species</label>
+        <input asp-for="Species" class="form-control">
+        <span asp-validation-for="Species" class="text-danger"></span>
+    </div>
+    <div class="form-group">
+        <label for="ShipId">Trick</label>
+        <input asp-for="Trick" class="form-control">
+        </select>
+        <span asp-validation-for="Trick" class="text-danger"></span>
+    </div>
+    <div class="form-group">
+        <label for="PirateId">Owner</label>
+        <select asp-for="PirateId" class="form-control">
+            <option disabled selected hidden>--Select a Pirate--</option>
+            @{
+                foreach(Pirate p in ViewBag.AllPirates)
+                {
+                    <option value="@p.PirateId">@p.Name</option>
+                }
+            }
+        </select>
+    </div>
+    <input type="submit" value="Add Pet" class="btn btn-success">
+</form>

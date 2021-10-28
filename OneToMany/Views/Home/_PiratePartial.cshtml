@@ -15,7 +15,7 @@
     <div class="form-group">
         <label for="ShipId">Ship</label>
         <select asp-for="ShipId" class="form-control">
-            <option>--Select a Ship--</option>
+            <option disabled selected hidden>--Select a Ship--</option>
             @{
                 foreach(Ship s in ViewBag.AllShips)
                 {

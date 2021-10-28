@@ -1,5 +1,6 @@
 using System;
 using System.ComponentModel.DataAnnotations;
+using System.Collections.Generic;
 
 namespace OneToMany.Models
 {
@@ -16,5 +17,6 @@ namespace OneToMany.Models
         [Required]
         public int ShipId { get; set; } //Ship that each pirate lives on
         public Ship Ship { get; set; } //Navigation property for which ship the Pirate belongs to
+        public List<Pet> Pets { get; set; } //wont add column to MYSQL
     }
 }

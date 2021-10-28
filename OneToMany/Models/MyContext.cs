@@ -7,5 +7,6 @@ namespace OneToMany.Models
         public MyContext(DbContextOptions options) : base(options) { }
         public DbSet<Pirate> Pirates { get; set; }
         public DbSet<Ship> Ships { get; set; }
+        public DbSet<Pet> Pets { get; set; }
     }
 }

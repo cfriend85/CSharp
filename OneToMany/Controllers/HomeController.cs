@@ -22,6 +22,7 @@ namespace OneToMany.Controllers
         {
             ViewBag.AllShips = _context.Ships.ToList();
             ViewBag.AllPirates = _context.Pirates.Include(s => s.Ship).ToList();
+            ViewBag.AllPets = _context.Pets.Include(p => p.Owner).ToList();
             return View();
         }
         
@@ -36,6 +37,7 @@ namespace OneToMany.Controllers
             } else {
                 ViewBag.AllShips = _context.Ships.ToList();
                 ViewBag.AllPirates = _context.Pirates.Include(s => s.Ship).ToList();
+                ViewBag.AllPets = _context.Pets.Include(p => p.Owner).ToList();
                 return View("Index");
             }
         }
@@ -50,7 +52,24 @@ namespace OneToMany.Controllers
                 return RedirectToAction("Index");
             } else {
                 ViewBag.AllShips = _context.Ships.ToList();
-                ViewBag.AllPirates = _context.Pirates.Include(s => s.Ship).ToList();                
+                ViewBag.AllPirates = _context.Pirates.Include(s => s.Ship).ToList();
+                ViewBag.AllPets = _context.Pets.Include(p => p.Owner).ToList();
+                return View("Index");
+            }
+        }
+
+        [HttpPost("addPet")]
+        public IActionResult addPet(Pet newPet)
+        {
+            if(ModelState.IsValid)
+            {
+                _context.Add(newPet);
+                _context.SaveChanges();
+                return RedirectToAction("Index");
+            } else {
+                ViewBag.AllShips = _context.Ships.ToList();
+                ViewBag.AllPirates = _context.Pirates.Include(s => s.Ship).ToList();
+                ViewBag.AllPets = _context.Pets.Include(p => p.Owner).ToList();
                 return View("Index");
             }
         }

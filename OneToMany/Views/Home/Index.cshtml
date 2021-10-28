@@ -7,6 +7,8 @@
         <partial name="_ShipPartial" />
         <hr>
         <partial name="_PiratePartial" />
+        <hr>
+        <partial name="_PetPartial" />
     </div>
     <div class="col-6">
         <h1>All Ships</h1>
@@ -38,6 +40,27 @@
                         <td>@p.Name</td>
                         <td>@p.Position</td>
                         <td>@p.Ship.ShipName</td>
+                    </tr>
+                }
+            }
+        </table>
+
+        <h1>All Pets</h1>
+        <table class="table table-striped">
+            <tr>
+                <th>Pet Name</th>
+                <th>Species</th>
+                <th>Trick</th>
+                <th>Owner</th>
+            </tr>
+            @{
+                foreach(Pet p in ViewBag.AllPets)
+                {
+                    <tr>
+                        <td>@p.PetName</td>
+                        <td>@p.Species</td>
+                        <td>@(p.Trick != null? @p.Trick : "None")</td>
+                        <td>@p.Owner.Name</td>
                     </tr>
                 }
             }
