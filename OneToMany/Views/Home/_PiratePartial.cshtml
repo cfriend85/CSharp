@@ -1,0 +1,29 @@
+@model Pirate;
+
+<h3>Add a Pirate!</h3>
+<form action="addPirate" method="post">
+    <div class="form-group">
+        <label for="Name">Pirate Name</label>
+        <input asp-for="Name" class="form-control">
+        <span asp-validation-for="Name" class="text-danger"></span>
+    </div>
+    <div class="form-group">
+        <label for="Position">Position</label>
+        <input asp-for="Position" class="form-control">
+        <span asp-validation-for="Position" class="text-danger"></span>
+    </div>
+    <div class="form-group">
+        <label for="ShipId">Ship</label>
+        <select asp-for="ShipId" class="form-control">
+            <option>--Select a Ship--</option>
+            @{
+                foreach(Ship s in ViewBag.AllShips)
+                {
+                    <option value="@s.ShipId">@s.ShipName</option>
+                }
+            }
+        </select>
+        <span asp-validation-for="ShipId" class="text-danger"></span>
+    </div>
+    <input type="submit" value="Add Pirate" class="btn btn-dark">
+</form>

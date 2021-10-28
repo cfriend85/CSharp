@@ -1,0 +1,11 @@
+@model Ship;
+
+<h3>Add a Ship!</h3>
+<form action="addShip" method="post">
+    <div class="form-group">
+        <label for="ShipName">Ship Name</label>
+        <input asp-for="ShipName" class="form-control">
+        <span asp-validation-for="ShipName" class="text-danger"></span>
+    </div>
+    <input type="submit" value="Add Ship" class="btn btn-warning">
+</form>

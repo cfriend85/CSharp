@@ -2,7 +2,45 @@
     ViewData["Title"] = "Home Page";
 }
 
-<div class="text-center">
-    <h1 class="display-4">Welcome</h1>
-    <p>Learn about <a href="https://docs.microsoft.com/aspnet/core">building Web apps with ASP.NET Core</a>.</p>
+<div class="row">
+    <div class="col-6">
+        <partial name="_ShipPartial" />
+        <hr>
+        <partial name="_PiratePartial" />
+    </div>
+    <div class="col-6">
+        <h1>All Ships</h1>
+        <table class="table table-striped">
+            <tr>
+                <th>Ship Name</th>
+            </tr>
+            @{
+                foreach(Ship s in ViewBag.AllShips)
+                {
+                    <tr>
+                        <td>@s.ShipName</td>
+                    </tr>
+                }
+            }
+        </table>
+        
+        <h1>All Pirates</h1>
+        <table class="table table-striped">
+            <tr>
+                <th>Pirates Name</th>
+                <th>Pirates Postion</th>
+                <th>Ship</th>
+            </tr>
+            @{
+                foreach(Pirate p in ViewBag.AllPirates)
+                {
+                    <tr>
+                        <td>@p.Name</td>
+                        <td>@p.Position</td>
+                        <td>@p.Ship.ShipName</td>
+                    </tr>
+                }
+            }
+        </table>
+    </div>
 </div>

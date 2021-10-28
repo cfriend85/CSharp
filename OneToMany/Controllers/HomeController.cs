@@ -20,7 +20,39 @@ namespace OneToMany.Controllers
 
         public IActionResult Index()
         {
+            ViewBag.AllShips = _context.Ships.ToList();
+            ViewBag.AllPirates = _context.Pirates.Include(s => s.Ship).ToList();
             return View();
+        }
+        
+        [HttpPost("addShip")]
+        public IActionResult addShip(Ship newShip)
+        {
+            if(ModelState.IsValid)
+            {
+                _context.Add(newShip);
+                _context.SaveChanges();
+                return RedirectToAction("Index");
+            } else {
+                ViewBag.AllShips = _context.Ships.ToList();
+                ViewBag.AllPirates = _context.Pirates.Include(s => s.Ship).ToList();
+                return View("Index");
+            }
+        }
+
+        [HttpPost("addPirate")]
+        public IActionResult addPirate(Pirate newPirate)
+        {
+            if(ModelState.IsValid)
+            {
+                _context.Add(newPirate);
+                _context.SaveChanges();
+                return RedirectToAction("Index");
+            } else {
+                ViewBag.AllShips = _context.Ships.ToList();
+                ViewBag.AllPirates = _context.Pirates.Include(s => s.Ship).ToList();                
+                return View("Index");
+            }
         }
     }
 }
