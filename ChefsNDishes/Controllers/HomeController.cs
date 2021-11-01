@@ -32,9 +32,43 @@ namespace ChefsNDishes.Controllers
         }
 
         [HttpGet("new")]
-        public IActionResult AddChef()
+        public IActionResult NewChef()
         {
+            ViewBag.Today = DateTime.Today;
             return View();
+        }
+
+        [HttpPost("addChef")]
+        public IActionResult AddChef(Chef newChef)
+        {
+            if(ModelState.IsValid)
+            {
+                _context.Add(newChef);
+                _context.SaveChanges();
+                return RedirectToAction("Index");
+            } else {
+                return View("AddChef");
+            }
+        }
+
+        [HttpGet("dishes/new")]
+        public IActionResult NewDish()
+        {
+            ViewBag.Chefs = _context.Chefs.ToList();
+            return View();
+        }
+
+        [HttpPost("addDish")]
+        public IActionResult AddDish(Dish newDish)
+        {
+            if(ModelState.IsValid)
+            {
+                _context.Add(newDish);
+                _context.SaveChanges();
+                return RedirectToAction("Dishes");
+            } else {
+                return View("NewDish");
+            }
         }
     }
 }

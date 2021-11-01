@@ -12,14 +12,12 @@
             <tr>
                 <th>Name</th>
                 <th>Age</th>
-                <th>Number of Dishes</th>
             </tr>
         @foreach(Chef c in Model)
         {
             <tr>
                 <td>@c.FirstName @c.LastName</td>
-                <td>@c.DOB</td>
-                <td>@c.Dishes.Count</td>
+                <td>@(DateTime.Today.Year - @c.DOB.Year)</td>
             </tr>
         }
         </table>
