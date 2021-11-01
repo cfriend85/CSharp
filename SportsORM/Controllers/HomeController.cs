@@ -5,6 +5,7 @@ using System.Linq;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
 using SportsORM.Models;
+using Microsoft.EntityFrameworkCore;
 
 
 namespace SportsORM.Controllers
@@ -67,6 +68,10 @@ namespace SportsORM.Controllers
         [HttpGet("level_2")]
         public IActionResult Level2()
         {
+            ViewBag.Soccer = _context.Leagues.Where(l => l.Name.Contains("Atlantic Soccer Conference")).Include(p => p.Teams).ToList();
+            ViewBag.Penguins = _context.Teams.Where(t => t.Location.Equals("Boston") && t.TeamName.Equals("Penguins")).Include(p => p.CurrentPlayers).ToList();
+            ViewBag.BaseballPlayers = _context.Teams.Where(t => t.CurrLeague.Name.Equals("International Collegiate Baseball Conference")).Include(t => t.CurrentPlayers).ToList();
+            ViewBag.Lopez = _context.Players.Where(p => p.LastName.Equals("Lopez") && p.CurrentTeam.CurrLeague.Name.Equals("American Conference of Amateur Football")).ToList();
             return View();
         }
 

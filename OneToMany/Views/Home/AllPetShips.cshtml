@@ -1,0 +1,19 @@
+<h1>The pets organized by the ship they're on</h1>
+<table class="table table-striped">
+    <tr>
+        <th>Pet Name</th>
+        <th>Ship</th>
+    </tr>
+    @{
+        foreach(Pirate p in ViewBag.PetsOnShip)
+        {
+            foreach(Pet pet in p.Pets)
+            {
+                <tr>
+                    <td>@pet.PetName</td>
+                    <td>@p.Ship.ShipName</td>
+                </tr>
+            }
+        }
+    }
+</table>

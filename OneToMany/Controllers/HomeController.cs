@@ -73,5 +73,12 @@ namespace OneToMany.Controllers
                 return View("Index");
             }
         }
+
+        [HttpGet("PetsonShip")]
+        public IActionResult PetsOnShip()
+        {
+            ViewBag.PetsOnShip = _context.Pirates.Include(p => p.Pets).Include(s => s.Ship).ToList();
+            return View("AllPetShips");
+        }
     }
 }

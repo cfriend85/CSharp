@@ -3,14 +3,108 @@
     <div class="card-body">
         <p>Using the SportsORM, complete all the following queries and show their results on Level2.cshtml.</p>
         <ol>
+            @{
             <li>...all teams in the Atlantic Soccer Conference</li>
+                <div class="card">
+                    <div class="card-body">
+                    <h3>Not Football</h3>
+                <table class="table table-striped">
+                    <tr>
+                        <th>Team Name</th>
+                    </tr>
+                    @foreach(League l in ViewBag.Soccer)
+                    {
+                        foreach(Team t in l.Teams)
+                        {
+                        <tr>
+                            <td>@t.Location @t.TeamName</td>
+                        </tr>
+                        }
+                    }
+                </table>
+                    </div>
+                </div>
             <li>...all (current) players on the Boston Penguins (Hint: Boston is the Location, Penguins is the TeamName)</li>
+                <div class="card">
+                    <div class="card-body">
+                    <h3>Penguins</h3>
+                <table class="table table-striped">
+                    <tr>
+                        <th>Player Name</th>
+                    </tr>
+                    @foreach(Team t in ViewBag.Penguins)
+                    {
+                        foreach(Player p in t.CurrentPlayers)
+                        {
+                        <tr>
+                            <td>@p.FirstName @p.LastName</td>
+                        </tr>
+                        }
+                    }
+                </table>
+                    </div>
+                </div>
             <li>...all (current) players in the International Collegiate Baseball Conference</li>
+                <div class="card">
+                    <div class="card-body">
+                    <h3>College Baseball Players</h3>
+                <table class="table table-striped">
+                    <tr>
+                        <th>Player Name</th>
+                    </tr>
+                    @foreach(Team t in ViewBag.BaseballPlayers)
+                    {
+                        foreach(Player p in t.CurrentPlayers)
+                        {
+                        <tr>
+                            <td>@p.FirstName @p.LastName</td>
+                        </tr>
+                        }
+                    }
+                </table>
+                    </div>
+                </div>
             <li>...all (current) players in the American Conference of Amateur Football with last name "Lopez"</li>
+                <div class="card">
+                    <div class="card-body">
+                    <h3>Not Football</h3>
+                <table class="table table-striped">
+                    <tr>
+                        <th>Team Name</th>
+                    </tr>
+                    @foreach(Player p in ViewBag.Lopez)
+                    {
+                        <tr>
+                            <td>@p.FirstName @p.LastName</td>
+                        </tr>
+                    }
+                </table>
+                    </div>
+                </div>
             <li>...all football players</li>
+                <div class="card">
+                    <div class="card-body">
+                    <h3>All Football Players</h3>
+                <table class="table table-striped">
+                    <tr>
+                        <th>Player Name</th>
+                    </tr>
+                    @foreach(Team t in ViewBag.FootballPlayers)
+                    {
+                        foreach(Player p in t.AllPlayers)
+                        {
+                        <tr>
+                            <td>@p.FirstName @p.LastName</td>
+                        </tr>
+                        }
+                    }
+                </table>
+                    </div>
+                </div>
             <li>...all teams with a (current) player named "Sophia"</li>
             <li>...all leagues with a (current) player named "Sophia"</li>
             <li>...everyone with the last name "Flores" who DOESN'T (currently) play for the Washington Roughriders</li>
+            }
         </ol>
     </div>
 </div>
