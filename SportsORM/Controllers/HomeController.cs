@@ -71,7 +71,9 @@ namespace SportsORM.Controllers
             ViewBag.Soccer = _context.Leagues.Where(l => l.Name.Contains("Atlantic Soccer Conference")).Include(p => p.Teams).ToList();
             ViewBag.Penguins = _context.Teams.Where(t => t.Location.Equals("Boston") && t.TeamName.Equals("Penguins")).Include(p => p.CurrentPlayers).ToList();
             ViewBag.BaseballPlayers = _context.Teams.Where(t => t.CurrLeague.Name.Equals("International Collegiate Baseball Conference")).Include(t => t.CurrentPlayers).ToList();
-            ViewBag.Lopez = _context.Players.Where(p => p.LastName.Equals("Lopez") && p.CurrentTeam.CurrLeague.Name.Equals("American Conference of Amateur Football")).ToList();
+            ViewBag.Lopez = _context.Players.Include(p => p.CurrentTeam.CurrLeague).Where(p => p.CurrentTeam.CurrLeague.Name.Equals("American Conference of Amateur Football") && p.LastName.Equals("Lopez")).ToList();
+            ViewBag.FootballPlayers = _context.Players.Include(p => p.CurrentTeam.CurrLeague).Where(p => p.CurrentTeam.CurrLeague.Name.Contains("Football")).ToList();
+            ViewBag.SophiaLeagues = _context.Leagues.Include(p => p.Teams).ThenInclude(x => x.CurrentPlayers).Where(p => p.Teams.Any(y => y.CurrentPlayers.Any(p => p.FirstName.Equals("Sophia")))).ToList();
             return View();
         }
 

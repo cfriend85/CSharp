@@ -67,7 +67,7 @@
             <li>...all (current) players in the American Conference of Amateur Football with last name "Lopez"</li>
                 <div class="card">
                     <div class="card-body">
-                    <h3>Not Football</h3>
+                    <h3>Lopez's</h3>
                 <table class="table table-striped">
                     <tr>
                         <th>Team Name</th>
@@ -89,21 +89,66 @@
                     <tr>
                         <th>Player Name</th>
                     </tr>
-                    @* @foreach(Team t in ViewBag.FootballPlayers)
+                    @foreach(Player p in ViewBag.FootballPlayers)
                     {
-                        foreach(Player p in t.AllPlayers)
-                        {
                         <tr>
                             <td>@p.FirstName @p.LastName</td>
                         </tr>
-                        }
-                    } *@
+                    }
                 </table>
                     </div>
                 </div>
             <li>...all teams with a (current) player named "Sophia"</li>
+                <div class="card">
+                    <div class="card-body">
+                    <h3>Teams With Sophias</h3>
+                <table class="table table-striped">
+                    <tr>
+                        <th>Team Name</th>
+                    </tr>
+                    @foreach(Team t in ViewBag.SophiaTeams)
+                    {
+                        <tr>
+                            <td>@t.Location @t.TeamName</td>
+                        </tr>
+                    }
+                </table>
+                    </div>
+                </div>
             <li>...all leagues with a (current) player named "Sophia"</li>
+                <div class="card">
+                    <div class="card-body">
+                    <h3>Leauges With Sophias</h3>
+                <table class="table table-striped">
+                    <tr>
+                        <th>League Name</th>
+                    </tr>
+                    @foreach(League l in ViewBag.SophiaLeagues)
+                    {
+                        <tr>
+                            <td>@l.Name</td>
+                        </tr>
+                    }
+                </table>
+                    </div>
+                </div>
             <li>...everyone with the last name "Flores" who DOESN'T (currently) play for the Washington Roughriders</li>
+                <div class="card">
+                    <div class="card-body">
+                    <h3>Not Roughriders</h3>
+                <table class="table table-striped">
+                    <tr>
+                        <th>Players</th>
+                    </tr>
+                    @foreach(Player p in ViewBag.PlayerNotWashington)
+                    {
+                        <tr>
+                            <td>@p.FirstName @p.LastName</td>
+                        </tr>
+                    }
+                </table>
+                    </div>
+                </div>
             }
         </ol>
     </div>
