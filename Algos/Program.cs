@@ -6,11 +6,12 @@ namespace Algos
     {
         static void Main(string[] args)
         {
-            Console.WriteLine("Algos!");
-            Console.WriteLine(addChar(29));
-            Console.WriteLine(adjacentProduct(new int[] {1,2,3,4,5}));
-            Console.WriteLine(angryProfessor(3, new int[] {-1,-3,4,2}));
-            Console.WriteLine(binarySearch(new int[] {1, 3, 8, 10, 12, 15, 17, 20, 22, 34, 38, 40, 50, 52, 78, 87, 90, 91, 92, 94, 200}, 52));
+            // Console.WriteLine("Algos!");
+            // Console.WriteLine(addChar(29));
+            // Console.WriteLine(adjacentProduct(new int[] {1,2,3,4,5}));
+            // Console.WriteLine(angryProfessor(3, new int[] {-1,-3,4,2}));
+            // Console.WriteLine(binarySearch(new int[] {1, 3, 8, 10, 12, 15, 17, 20, 22, 34, 38, 40, 50, 52, 78, 87, 90, 91, 92, 94, 200}, 52));
+            Console.WriteLine(birthdayCakeCandles(new int[] {3,2,1,3}));
         }
 
         public static int addChar(int n)
@@ -69,6 +70,25 @@ namespace Algos
                 }
             }
             return -1;
+        }
+
+        public static int birthdayCakeCandles(int[] candles)
+        {
+            Array.Sort(candles);
+            int count = 0;
+            int max = 0;
+            for(int i = 0; i < candles.Length; i++)
+            {
+                if (candles[i] > max)
+                {
+                    max = candles[i];
+                    count = 1;
+                } else if (candles[i] == max)
+                {
+                    count += 1;
+                }
+            }
+            return count;
         }
     }
 }
