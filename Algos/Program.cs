@@ -1,17 +1,18 @@
 ﻿using System;
-
+using System.Text.RegularExpressions;
 namespace Algos
 {
     class Program
     {
         static void Main(string[] args)
         {
-            // Console.WriteLine("Algos!");
-            // Console.WriteLine(addChar(29));
-            // Console.WriteLine(adjacentProduct(new int[] {1,2,3,4,5}));
-            // Console.WriteLine(angryProfessor(3, new int[] {-1,-3,4,2}));
-            // Console.WriteLine(binarySearch(new int[] {1, 3, 8, 10, 12, 15, 17, 20, 22, 34, 38, 40, 50, 52, 78, 87, 90, 91, 92, 94, 200}, 52));
+            Console.WriteLine("JavaScript Algos To C#!");
+            Console.WriteLine(addChar(29));
+            Console.WriteLine(adjacentProduct(new int[] {1,2,3,4,5}));
+            Console.WriteLine(angryProfessor(3, new int[] {-1,-3,4,2}));
+            Console.WriteLine(binarySearch(new int[] {1, 3, 8, 10, 12, 15, 17, 20, 22, 34, 38, 40, 50, 52, 78, 87, 90, 91, 92, 94, 200}, 52));
             Console.WriteLine(birthdayCakeCandles(new int[] {3,2,1,3}));
+            Console.WriteLine(camelCase("saveChangesInTheEditor"));
         }
 
         public static int addChar(int n)
@@ -86,6 +87,21 @@ namespace Algos
                 } else if (candles[i] == max)
                 {
                     count += 1;
+                }
+            }
+            return count;
+        }
+
+        public static int camelCase(string s)
+        {
+            int count = 1;
+            Regex rx = new Regex("[A-Z]");
+            for(int i = 0; i < s.Length; i++)
+            {
+                MatchCollection matches = rx.Matches(char.ToString(s[i]));
+                foreach(Match match in matches)
+                {
+                    count +=1;
                 }
             }
             return count;
