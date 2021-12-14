@@ -10,6 +10,7 @@ namespace Algos
             Console.WriteLine(addChar(29));
             Console.WriteLine(adjacentProduct(new int[] {1,2,3,4,5}));
             Console.WriteLine(angryProfessor(3, new int[] {-1,-3,4,2}));
+            Console.WriteLine(binarySearch(new int[] {1, 3, 8, 10, 12, 15, 17, 20, 22, 34, 38, 40, 50, 52, 78, 87, 90, 91, 92, 94, 200}, 52));
         }
 
         public static int addChar(int n)
@@ -46,6 +47,28 @@ namespace Algos
                 }
             }
             return count < k ? "YES" : "NO";
+        }
+
+        public static int binarySearch(int[] array, int num)
+        {
+            int left = array[0];
+            int right = array.Length;
+            while (left <= right)
+            {
+                int center = left + (right - left) / 2;
+                if (num == array[center])
+                {
+                    return center;
+                }
+                if (num < array[center])
+                {
+                    right = center - 1;
+                } else
+                {
+                    left = center + 1;
+                }
+            }
+            return -1;
         }
     }
 }
