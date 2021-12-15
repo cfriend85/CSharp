@@ -13,6 +13,7 @@ namespace Algos
             Console.WriteLine(binarySearch(new int[] {1, 3, 8, 10, 12, 15, 17, 20, 22, 34, 38, 40, 50, 52, 78, 87, 90, 91, 92, 94, 200}, 52));
             Console.WriteLine(birthdayCakeCandles(new int[] {3,2,1,3}));
             Console.WriteLine(camelCase("saveChangesInTheEditor"));
+            Console.WriteLine(catAndMouse(2,5,4));
         }
 
         public static int addChar(int n)
@@ -101,10 +102,26 @@ namespace Algos
                 MatchCollection matches = rx.Matches(char.ToString(s[i]));
                 foreach(Match match in matches)
                 {
-                    count +=1;
+                    count += 1;
                 }
             }
             return count;
+        }
+
+        public static string catAndMouse(int x, int y, int z)
+        {
+            int CatA = z-x;
+            int CatB = z-y;
+            if (CatA > CatB)
+            {
+                return "Cat B";
+            } else if (CatB > CatA)
+            {
+                return "Cat A";
+            } else
+            {
+                return "Mouse C";
+            }
         }
     }
 }
