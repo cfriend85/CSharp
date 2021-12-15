@@ -14,6 +14,7 @@ namespace Algos
             Console.WriteLine(birthdayCakeCandles(new int[] {3,2,1,3}));
             Console.WriteLine(camelCase("saveChangesInTheEditor"));
             Console.WriteLine(catAndMouse(2,5,4));
+            compareTriplets(new int[] {5,6,7}, new int[] {3,6,10});
         }
 
         public static int addChar(int n)
@@ -122,6 +123,28 @@ namespace Algos
             {
                 return "Mouse C";
             }
+        }
+
+        public static object[] compareTriplets(int[] a, int[] b)
+        {
+            int alice = 0;
+            int bob = 0;
+            for(int i = 0; i < b.Length; i++)
+            {
+                if (a[i] > b[i])
+                {
+                    alice += 1;
+                } else if (b[i] > a[i])
+                {
+                    bob += 1;
+                } else
+                {
+                    Console.WriteLine("Tie!");
+                }
+            }
+            object[] result = new object[2] {alice, bob};
+            Console.WriteLine(string.Join(", ", result));
+            return result;
         }
     }
 }
