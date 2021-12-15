@@ -15,6 +15,7 @@ namespace Algos
             Console.WriteLine(camelCase("saveChangesInTheEditor"));
             Console.WriteLine(catAndMouse(2,5,4));
             compareTriplets(new int[] {5,6,7}, new int[] {3,6,10});
+            Console.WriteLine(peaksAndValleys(8, "UDDDUDUU"));
         }
 
         public static int addChar(int n)
@@ -145,6 +146,27 @@ namespace Algos
             object[] result = new object[2] {alice, bob};
             Console.WriteLine(string.Join(", ", result));
             return result;
+        }
+
+        public static int peaksAndValleys(int steps, string path)
+        {
+            int valleys = 0;
+            int count = 0;
+            for(int i = 0; i < path.Length; i++)
+            {
+                if (char.ToString(path[i]) == "U" && count == 0)
+                {
+                    valleys += 1;
+                }
+                if (char.ToString(path[i]) == "U")
+                {
+                    count += 1;
+                } else
+                {
+                    count -= 1;
+                }
+            }
+            return valleys;
         }
     }
 }
