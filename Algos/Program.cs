@@ -17,9 +17,7 @@ namespace Algos
             compareTriplets(new int[] {5,6,7}, new int[] {3,6,10});
             Console.WriteLine(peaksAndValleys(8, "UDDDUDUU"));
             Console.WriteLine(findDigits(1012));
-            Console.WriteLine(interstingPolygon(3));
-            Console.WriteLine(interstingPolygon(2));
-            Console.WriteLine(interstingPolygon(4));
+            Console.WriteLine(interestingPolygon(3));
         }
 
         public static int addChar(int n)
@@ -187,7 +185,7 @@ namespace Algos
             return count;
         }
 
-        public static int interstingPolygon(int n)
+        public static int interestingPolygon(int n)
         {
             int test = ((n-1) * (n-1));
             int result = test + n * n;
