@@ -16,6 +16,7 @@ namespace Algos
             Console.WriteLine(catAndMouse(2,5,4));
             compareTriplets(new int[] {5,6,7}, new int[] {3,6,10});
             Console.WriteLine(peaksAndValleys(8, "UDDDUDUU"));
+            Console.WriteLine(findDigits(1012));
         }
 
         public static int addChar(int n)
@@ -167,6 +168,20 @@ namespace Algos
                 }
             }
             return valleys;
+        }
+
+        public static int findDigits(int n)
+        {
+            string myNum = string.Join(", ", n);
+            int count = 0;
+            for(int i = 0; i < myNum.Length; i++)
+            {
+                if (n % Char.GetNumericValue(myNum[i]) == 0)
+                {
+                    count += 1;
+                }
+            }
+            return count;
         }
     }
 }
