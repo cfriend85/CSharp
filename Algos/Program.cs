@@ -89,15 +89,15 @@ namespace Algos
             Array.Sort(candles);
             int count = 0;
             int max = 0;
-            for(int i = 0; i < candles.Length; i++)
+            foreach(int i in candles)
             {
-                if (candles[i] > max)
+                if (i > max)
                 {
-                    max = candles[i];
+                    max = i;
                     count = 1;
-                } else if (candles[i] == max)
+                } else if (i == max)
                 {
-                    count += 1;
+                    count++;
                 }
             }
             return count;
