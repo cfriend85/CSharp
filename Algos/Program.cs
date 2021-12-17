@@ -17,7 +17,8 @@ namespace Algos
             compareTriplets(new int[] {5,6,7}, new int[] {3,6,10});
             Console.WriteLine(peaksAndValleys(8, "UDDDUDUU"));
             Console.WriteLine(findDigits(1012));
-            Console.WriteLine(interestingPolygon(3));Console.WriteLine(isPalindrome("aabaa"));
+            Console.WriteLine(interestingPolygon(3));
+            Console.WriteLine(isPalindrome("aabaa"));
             Console.WriteLine(miniMaxSum(new int[] {1,2,3,4,5}));
             plusMinus(8, new int[] {1,2,3,-1,-2,-3,0,0});
             Console.WriteLine(secondLargest(new int[] {5,15,77,64,31,99,45,17,0,25,1,65,148}));
@@ -28,8 +29,9 @@ namespace Algos
         {
             int sum = 0;
             string myNum = string.Join(", ", n);
-            for(int i = 0; i < myNum.Length; i++){
-                int num = (int)Char.GetNumericValue(myNum[i]);
+            foreach(char s in myNum)
+            {
+                int num = (int)Char.GetNumericValue(s);
                 sum += num;
             }
             return sum;
