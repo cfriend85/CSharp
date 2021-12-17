@@ -21,6 +21,7 @@ namespace Algos
             Console.WriteLine(miniMaxSum(new int[] {1,2,3,4,5}));
             plusMinus(8, new int[] {1,2,3,-1,-2,-3,0,0});
             Console.WriteLine(secondLargest(new int[] {5,15,77,64,31,99,45,17,0,25,1,65,148}));
+            Console.WriteLine(simpleArraySum(new int[] {1,2,3,4,5}));
         }
 
         public static int addChar(int n)
@@ -269,6 +270,16 @@ namespace Algos
                 }
             }
             return secLarge;
+        }
+
+        public static int simpleArraySum(int[] numbers)
+        {
+            int sum = 0;
+            foreach(int n in numbers)
+            {
+                sum += n;
+            }
+            return sum;
         }
     }
 }
