@@ -17,7 +17,7 @@ namespace Algos
             compareTriplets(new int[] {5,6,7}, new int[] {3,6,10});
             Console.WriteLine(peaksAndValleys(8, "UDDDUDUU"));
             Console.WriteLine(findDigits(1012));
-            Console.WriteLine(interestingPolygon(3));
+            Console.WriteLine(interestingPolygon(3));Console.WriteLine(isPalindrome("aabaa"));
         }
 
         public static int addChar(int n)
@@ -190,6 +190,25 @@ namespace Algos
             int test = ((n-1) * (n-1));
             int result = test + n * n;
             return result;
+        }
+
+
+        public static bool isPalindrome(string inputString)
+        {
+            for(int i = 0; i < inputString.Length; i++)
+            {
+                for(int j = inputString.Length-1; j > 0; j--)
+                {
+                    if (inputString[i] == inputString[j])
+                    {
+                        i += 1;
+                    } else
+                    {
+                        return false;
+                    }
+                }
+            }
+            return true;
         }
     }
 }
