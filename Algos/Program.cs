@@ -18,6 +18,7 @@ namespace Algos
             Console.WriteLine(peaksAndValleys(8, "UDDDUDUU"));
             Console.WriteLine(findDigits(1012));
             Console.WriteLine(interestingPolygon(3));Console.WriteLine(isPalindrome("aabaa"));
+            Console.WriteLine(miniMaxSum(new int[] {1,2,3,4,5}));
         }
 
         public static int addChar(int n)
@@ -209,6 +210,18 @@ namespace Algos
                 }
             }
             return true;
+        }
+
+        public static object[] miniMaxSum(int[] array)
+        {
+            Array.Sort(array);
+            int sum = 0;
+            for(int i = 0; i < array.Length; i++)
+            {
+                sum += array[i];
+            }
+            object[] result = new object[] {sum - array[4], sum - array[0]};
+            return result;
         }
     }
 }
