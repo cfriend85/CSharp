@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections.Generic;
 using System.Text.RegularExpressions;
 namespace Algos
 {
@@ -6,23 +7,24 @@ namespace Algos
     {
         static void Main(string[] args)
         {
-            // Console.WriteLine("JavaScript Algos To C#!");
-            // Console.WriteLine(addChar(29));
-            // Console.WriteLine(adjacentProduct(new int[] {1,2,3,4,5}));
-            // Console.WriteLine(angryProfessor(3, new int[] {-1,-3,4,2}));
-            // Console.WriteLine(binarySearch(new int[] {1, 3, 8, 10, 12, 15, 17, 20, 22, 34, 38, 40, 50, 52, 78, 87, 90, 91, 92, 94, 200}, 52));
-            // Console.WriteLine(birthdayCakeCandles(new int[] {3,2,1,3}));
-            // Console.WriteLine(camelCase("saveChangesInTheEditor"));
-            // Console.WriteLine(catAndMouse(2,5,4));
-            // compareTriplets(new int[] {5,6,7}, new int[] {3,6,10});
-            // Console.WriteLine(peaksAndValleys(8, "UDDDUDUU"));
-            // Console.WriteLine(findDigits(1012));
-            // Console.WriteLine(interestingPolygon(3));
-            // Console.WriteLine(isPalindrome("aabaa"));
-            // Console.WriteLine(miniMaxSum(new int[] {1,2,3,4,5}));
-            // plusMinus(8, new int[] {1,2,3,-1,-2,-3,0,0});
+            Console.WriteLine("JavaScript Algos To C#!");
+            Console.WriteLine(addChar(29));
+            Console.WriteLine(adjacentProduct(new int[] {1,2,3,4,5}));
+            Console.WriteLine(angryProfessor(3, new int[] {-1,-3,4,2}));
+            Console.WriteLine(binarySearch(new int[] {1, 3, 8, 10, 12, 15, 17, 20, 22, 34, 38, 40, 50, 52, 78, 87, 90, 91, 92, 94, 200}, 52));
+            Console.WriteLine(birthdayCakeCandles(new int[] {3,2,1,3}));
+            Console.WriteLine(camelCase("saveChangesInTheEditor"));
+            Console.WriteLine(catAndMouse(2,5,4));
+            compareTriplets(new int[] {5,6,7}, new int[] {3,6,10});
+            Console.WriteLine(peaksAndValleys(8, "UDDDUDUU"));
+            Console.WriteLine(findDigits(1012));
+            Console.WriteLine(interestingPolygon(3));
+            Console.WriteLine(isPalindrome("aabaa"));
+            Console.WriteLine(miniMaxSum(new int[] {1,2,3,4,5}));
+            plusMinus(8, new int[] {1,2,3,-1,-2,-3,0,0});
             Console.WriteLine(secondLargest(new int[] {5,15,77,64,31,99,45,17,0,25,1,65,148}));
-            // Console.WriteLine(simpleArraySum(new int[] {1,2,3,4,5}));
+            Console.WriteLine(simpleArraySum(new int[] {1,2,3,4,5}));
+            Console.WriteLine(sortMe(new int[] {5,7,3,8,1,9}));
         }
 
         public static int addChar(int n)
@@ -282,6 +284,18 @@ namespace Algos
                 sum += n;
             }
             return sum;
+        }
+
+        public static int[] sortMe(int[] numbers)
+        {
+            List<int> temp = new List<int> {};
+            foreach(int num in numbers)
+            {
+                temp.Add(num * num);
+            }
+            int[] result = temp.ToArray();
+            Array.Sort(result);
+            return result;
         }
     }
 }
