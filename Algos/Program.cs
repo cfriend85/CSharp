@@ -181,11 +181,11 @@ namespace Algos
         {
             string myNum = string.Join(", ", n);
             int count = 0;
-            for(int i = 0; i < myNum.Length; i++)
+            foreach(char c in myNum)
             {
-                if (n % Char.GetNumericValue(myNum[i]) == 0)
+                if (n % Char.GetNumericValue(c) == 0)
                 {
-                    count += 1;
+                    count++;
                 }
             }
             return count;
