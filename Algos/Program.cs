@@ -6,23 +6,23 @@ namespace Algos
     {
         static void Main(string[] args)
         {
-            Console.WriteLine("JavaScript Algos To C#!");
-            Console.WriteLine(addChar(29));
-            Console.WriteLine(adjacentProduct(new int[] {1,2,3,4,5}));
-            Console.WriteLine(angryProfessor(3, new int[] {-1,-3,4,2}));
-            Console.WriteLine(binarySearch(new int[] {1, 3, 8, 10, 12, 15, 17, 20, 22, 34, 38, 40, 50, 52, 78, 87, 90, 91, 92, 94, 200}, 52));
-            Console.WriteLine(birthdayCakeCandles(new int[] {3,2,1,3}));
-            Console.WriteLine(camelCase("saveChangesInTheEditor"));
-            Console.WriteLine(catAndMouse(2,5,4));
-            compareTriplets(new int[] {5,6,7}, new int[] {3,6,10});
-            Console.WriteLine(peaksAndValleys(8, "UDDDUDUU"));
-            Console.WriteLine(findDigits(1012));
-            Console.WriteLine(interestingPolygon(3));
-            Console.WriteLine(isPalindrome("aabaa"));
-            Console.WriteLine(miniMaxSum(new int[] {1,2,3,4,5}));
+            // Console.WriteLine("JavaScript Algos To C#!");
+            // Console.WriteLine(addChar(29));
+            // Console.WriteLine(adjacentProduct(new int[] {1,2,3,4,5}));
+            // Console.WriteLine(angryProfessor(3, new int[] {-1,-3,4,2}));
+            // Console.WriteLine(binarySearch(new int[] {1, 3, 8, 10, 12, 15, 17, 20, 22, 34, 38, 40, 50, 52, 78, 87, 90, 91, 92, 94, 200}, 52));
+            // Console.WriteLine(birthdayCakeCandles(new int[] {3,2,1,3}));
+            // Console.WriteLine(camelCase("saveChangesInTheEditor"));
+            // Console.WriteLine(catAndMouse(2,5,4));
+            // compareTriplets(new int[] {5,6,7}, new int[] {3,6,10});
+            // Console.WriteLine(peaksAndValleys(8, "UDDDUDUU"));
+            // Console.WriteLine(findDigits(1012));
+            // Console.WriteLine(interestingPolygon(3));
+            // Console.WriteLine(isPalindrome("aabaa"));
+            // Console.WriteLine(miniMaxSum(new int[] {1,2,3,4,5}));
             plusMinus(8, new int[] {1,2,3,-1,-2,-3,0,0});
-            Console.WriteLine(secondLargest(new int[] {5,15,77,64,31,99,45,17,0,25,1,65,148}));
-            Console.WriteLine(simpleArraySum(new int[] {1,2,3,4,5}));
+            // Console.WriteLine(secondLargest(new int[] {5,15,77,64,31,99,45,17,0,25,1,65,148}));
+            // Console.WriteLine(simpleArraySum(new int[] {1,2,3,4,5}));
         }
 
         public static int addChar(int n)
@@ -217,30 +217,30 @@ namespace Algos
             return true;
         }
 
-        public static object[] miniMaxSum(int[] array)
+        public static object[] miniMaxSum(int[] numbers)
         {
-            Array.Sort(array);
+            Array.Sort(numbers);
             int sum = 0;
-            for(int i = 0; i < array.Length; i++)
+            foreach(int num in numbers)
             {
-                sum += array[i];
+                sum += num;
             }
-            object[] result = new object[] {sum - array[4], sum - array[0]};
+            object[] result = new object[] {sum - numbers[4], sum - numbers[0]};
             return result;
         }
 
-        public static void plusMinus(int n, int[] array)
+        public static void plusMinus(int n, int[] numbers)
         {
-            int x = array.Length;
+            int x = numbers.Length;
             int pos = 0;
             int neg = 0;
             int zero = 0;
-            for(int i = 0; i < x; i++)
+            foreach(int num in numbers)
             {
-                if (array[i] > 0)
+                if (num > 0)
                 {
                     pos += 1;
-                } else if (array[i] < 0)
+                } else if (num < 0)
                 {
                     neg += 1;
                 } else
