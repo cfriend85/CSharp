@@ -46,16 +46,19 @@ namespace Basic13
         }
         public static void LoopArray(int[] numbers)
         {
-            for(int i = 0; i < numbers.Length; i++){
-                Console.WriteLine(numbers[i]);
+            foreach(int num in numbers)
+            {
+                Console.WriteLine(num);
             }
         }
         public static int FindMax(int[] numbers)
         {
             int max = numbers[0];
-            for(int i = 1; i < numbers.Length; i++){
-                if(numbers[i] > max){
-                    max = numbers[i];
+            foreach(int num in numbers)
+            {
+                if (num > max)
+                {
+                    max = num;
                 }
             }
             return max;
@@ -63,8 +66,9 @@ namespace Basic13
         public static void GetAverage(int[] numbers)
         {
             int sum = numbers[0];
-            for(int i = 1; i < numbers.Length; i++){
-                sum += numbers[i];
+            foreach(int num in numbers)
+            {
+                sum += num;
             }
             Console.WriteLine(sum / numbers.Length);
         }
@@ -84,9 +88,11 @@ namespace Basic13
         public static int GreaterThanY(int[] numbers, int y)
         {
             int count = 0;
-            for(int i = 0; i < numbers.Length; i++){
-                if(numbers[i] > y){
-                    count += 1;
+            foreach(int num in numbers)
+            {
+                if (num > y)
+                {
+                    count++;
                 }
             }
             return count;
@@ -112,17 +118,19 @@ namespace Basic13
             int min = numbers[0];
             int max = numbers[0];
             int sum = numbers[0];
-            for(int i = 1; i < numbers.Length; i++){
-                if(numbers[i] < min){
-                    min = numbers[i];
-                    sum += numbers[i];
-                }
-                else if(numbers[i] > max){
-                    max = numbers[i];
-                    sum += numbers[i];
-                }
-                else{
-                    sum += numbers[i];
+            foreach(int num in numbers)
+            {
+                if (num < min)
+                {
+                    min = num;
+                    sum += num;
+                } else if (num > max)
+                {
+                    max = num;
+                    sum += num;
+                } else
+                {
+                    sum += num;
                 }
             }
             Console.WriteLine($"min: {min}");
