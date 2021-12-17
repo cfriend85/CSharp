@@ -52,11 +52,11 @@ namespace Algos
         public static string angryProfessor(int k, int[] arrivalTimes)
         {
             int count = 0;
-            for(int i = 0; i < arrivalTimes.Length; i++)
+            foreach(int i in arrivalTimes)
             {
-                if (arrivalTimes[i] <= 0)
+                if (i <= 0)
                 {
-                    count += 1;
+                    count++;
                 }
             }
             return count < k ? "YES" : "NO";
