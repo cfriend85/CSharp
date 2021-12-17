@@ -20,8 +20,8 @@ namespace Algos
             // Console.WriteLine(interestingPolygon(3));
             // Console.WriteLine(isPalindrome("aabaa"));
             // Console.WriteLine(miniMaxSum(new int[] {1,2,3,4,5}));
-            plusMinus(8, new int[] {1,2,3,-1,-2,-3,0,0});
-            // Console.WriteLine(secondLargest(new int[] {5,15,77,64,31,99,45,17,0,25,1,65,148}));
+            // plusMinus(8, new int[] {1,2,3,-1,-2,-3,0,0});
+            Console.WriteLine(secondLargest(new int[] {5,15,77,64,31,99,45,17,0,25,1,65,148}));
             // Console.WriteLine(simpleArraySum(new int[] {1,2,3,4,5}));
         }
 
@@ -260,15 +260,15 @@ namespace Algos
         {
             int large = numbers[0];
             int secLarge = numbers[0];
-            for(int i = 0; i < numbers.Length; i++)
+            foreach(int num in numbers)
             {
-                if (numbers[i] > large)
+                if (num > large)
                 {
                     secLarge = large;
-                    large = numbers[i];
-                } else if (numbers[i] > secLarge && numbers[i] < large)
+                    large = num;
+                } else if (num > secLarge && num < large)
                 {
-                    secLarge = numbers[i];
+                    secLarge = num;
                 }
             }
             return secLarge;
