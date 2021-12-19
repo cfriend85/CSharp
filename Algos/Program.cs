@@ -25,6 +25,7 @@ namespace Algos
             Console.WriteLine(secondLargest(new int[] {5,15,77,64,31,99,45,17,0,25,1,65,148}));
             Console.WriteLine(simpleArraySum(new int[] {1,2,3,4,5}));
             Console.WriteLine(sortMe(new int[] {5,7,3,8,1,9}));
+            Console.WriteLine(century(1999));
         }
 
         public static int addChar(int n)
@@ -296,6 +297,19 @@ namespace Algos
             int[] result = temp.ToArray();
             Array.Sort(result);
             return result;
+        }
+
+        public static int century(int year)
+        {
+            int myCentury = 0;
+            for(int i = 0; i < year; i++)
+            {
+                if (i % 100 == 0)
+                {
+                    myCentury++;
+                }
+            }
+            return myCentury;
         }
     }
 }
