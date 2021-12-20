@@ -26,7 +26,10 @@ namespace Algos
             // Console.WriteLine(simpleArraySum(new int[] {1,2,3,4,5}));
             // Console.WriteLine(sortMe(new int[] {5,7,3,8,1,9}));
             // Console.WriteLine(century(1999));
-            Console.WriteLine(gradingStudents(new int[] {23,80,96,18,73,78,60,60,15,45,15,10,5,46,87,33,60,14,71}));
+            // Console.WriteLine(gradingStudents(new int[] {23,80,96,18,73,78,60,60,15,45,15,10,5,46,87,33,60,14,71}));
+            Console.WriteLine(greet("Anakin"));
+            Console.WriteLine(greet("Count Dooku"));
+            Console.WriteLine(greet("C3PO"));
         }
 
         public static int addChar(int n)
@@ -327,6 +330,22 @@ namespace Algos
                 }
             }
             return grades;
+        }
+
+
+        public static string greet(string myName)
+        {
+            DateTime now = DateTime.Now;
+            if (myName == "Anakin")
+            {
+                return $"Good Day Anakin, the current date and time is {now}";
+            } else if (myName == "Count Dooku")
+            {
+                return $"The time is {now.ToString("hh:mm tt")} on {now.ToString("d")} and your time is coming Dooku!!!";
+            } else
+            {
+                return "This is not the droid we're looking for";
+            }
         }
     }
 }
