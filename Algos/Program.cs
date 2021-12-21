@@ -31,6 +31,7 @@ namespace Algos
             Console.WriteLine(greet("Count Dooku"));
             Console.WriteLine(greet("C3PO"));
             ModulusNumbers();
+            Console.WriteLine(chocolateFeast(10,2,5));
         }
 
         public static int addChar(int n)
@@ -361,6 +362,20 @@ namespace Algos
                     }
                 }
             }
+        }
+
+        public static int chocolateFeast(int n, int c, int m)
+        {
+            int chocolates = n /c;
+            int wrappers = chocolates;
+            while (wrappers >= m)
+            {
+                wrappers -= m;
+                chocolates++;
+                wrappers++;
+            }
+
+            return chocolates;
         }
     }
 }
