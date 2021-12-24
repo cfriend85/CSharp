@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Text;
 using System.Collections.Generic;
 using System.Text.RegularExpressions;
 namespace Algos
@@ -32,6 +33,7 @@ namespace Algos
             Console.WriteLine(greet("C3PO"));
             ModulusNumbers();
             Console.WriteLine(chocolateFeast(10,2,5));
+            Console.WriteLine(marsExploration("OOSDSSOSOSWEWSOSOSOSOSOSOSSSSOSOSOSS"));
         }
 
         public static int addChar(int n)
@@ -376,6 +378,22 @@ namespace Algos
             }
 
             return chocolates;
+        }
+
+
+        public static int marsExploration(string s)
+        {
+            int sosCount = s.Length / 3;
+            int count = 0;
+            string expectedString = new StringBuilder("SOS".Length * sosCount).Insert(0, "SOS", sosCount).ToString();
+            for(int i = 0; i < s.Length; i++)
+            {
+                if (expectedString[i] != s[i])
+                {
+                    count++;
+                }
+            }
+            return count;
         }
     }
 }
