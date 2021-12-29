@@ -8,33 +8,34 @@ namespace Algos
     {
         static void Main(string[] args)
         {
-            // Console.WriteLine("JavaScript Algos To C#!");
-            // Console.WriteLine(addChar(29));
-            // Console.WriteLine(adjacentProduct(new int[] {1,2,3,4,5}));
-            // Console.WriteLine(angryProfessor(3, new int[] {-1,-3,4,2}));
-            // Console.WriteLine(binarySearch(new int[] {1, 3, 8, 10, 12, 15, 17, 20, 22, 34, 38, 40, 50, 52, 78, 87, 90, 91, 92, 94, 200}, 52));
-            // Console.WriteLine(birthdayCakeCandles(new int[] {3,2,1,3}));
-            // Console.WriteLine(camelCase("saveChangesInTheEditor"));
-            // Console.WriteLine(catAndMouse(2,5,4));
-            // compareTriplets(new int[] {5,6,7}, new int[] {3,6,10});
-            // Console.WriteLine(peaksAndValleys(8, "UDDDUDUU"));
-            // Console.WriteLine(findDigits(1012));
-            // Console.WriteLine(interestingPolygon(3));
-            // Console.WriteLine(isPalindrome("aabaa"));
-            // Console.WriteLine(miniMaxSum(new int[] {1,2,3,4,5}));
-            // plusMinus(8, new int[] {1,2,3,-1,-2,-3,0,0});
-            // Console.WriteLine(secondLargest(new int[] {5,15,77,64,31,99,45,17,0,25,1,65,148}));
-            // Console.WriteLine(simpleArraySum(new int[] {1,2,3,4,5}));
-            // Console.WriteLine(sortMe(new int[] {5,7,3,8,1,9}));
-            // Console.WriteLine(century(1999));
-            // Console.WriteLine(gradingStudents(new int[] {23,80,96,18,73,78,60,60,15,45,15,10,5,46,87,33,60,14,71}));
-            // Console.WriteLine(greet("Anakin"));
-            // Console.WriteLine(greet("Count Dooku"));
-            // Console.WriteLine(greet("C3PO"));
-            // ModulusNumbers();
-            // Console.WriteLine(chocolateFeast(10,2,5));
-            // Console.WriteLine(marsExploration("OOSDSSOSOSWEWSOSOSOSOSOSOSSSSOSOSOSS"));
+            Console.WriteLine("JavaScript Algos To C#!");
+            Console.WriteLine(addChar(29));
+            Console.WriteLine(adjacentProduct(new int[] {1,2,3,4,5}));
+            Console.WriteLine(angryProfessor(3, new int[] {-1,-3,4,2}));
+            Console.WriteLine(binarySearch(new int[] {1, 3, 8, 10, 12, 15, 17, 20, 22, 34, 38, 40, 50, 52, 78, 87, 90, 91, 92, 94, 200}, 52));
+            Console.WriteLine(birthdayCakeCandles(new int[] {3,2,1,3}));
+            Console.WriteLine(camelCase("saveChangesInTheEditor"));
+            Console.WriteLine(catAndMouse(2,5,4));
+            compareTriplets(new int[] {5,6,7}, new int[] {3,6,10});
+            Console.WriteLine(peaksAndValleys(8, "UDDDUDUU"));
+            Console.WriteLine(findDigits(1012));
+            Console.WriteLine(interestingPolygon(3));
+            Console.WriteLine(isPalindrome("aabaa"));
+            Console.WriteLine(miniMaxSum(new int[] {1,2,3,4,5}));
+            plusMinus(8, new int[] {1,2,3,-1,-2,-3,0,0});
+            Console.WriteLine(secondLargest(new int[] {5,15,77,64,31,99,45,17,0,25,1,65,148}));
+            Console.WriteLine(simpleArraySum(new int[] {1,2,3,4,5}));
+            Console.WriteLine(sortMe(new int[] {5,7,3,8,1,9}));
+            Console.WriteLine(century(1999));
+            Console.WriteLine(gradingStudents(new int[] {23,80,96,18,73,78,60,60,15,45,15,10,5,46,87,33,60,14,71}));
+            Console.WriteLine(greet("Anakin"));
+            Console.WriteLine(greet("Count Dooku"));
+            Console.WriteLine(greet("C3PO"));
+            ModulusNumbers();
+            Console.WriteLine(chocolateFeast(10,2,5));
+            Console.WriteLine(marsExploration("OOSDSSOSOSWEWSOSOSOSOSOSOSSSSOSOSOSS"));
             breakingRecords(new int[] {17,45,41,60,17,41,76,43,51,40,89,92,34,6,64,7,37,81,32,50});
+            Console.WriteLine(maximumToys(new int[] {33324560,77661073,31948330,21522343,97176507,5724692,24699815,12079402,6479353,28430129,42427721,57127004,26256001,29446837,65107604,9809008,65846182,8470661,13597655,360}, 100000));
         }
 
         public static int addChar(int n)
@@ -418,6 +419,22 @@ namespace Algos
             }
             object[] result = new object[] {maxCount, minCount};
             return result;
+        }
+
+
+        public static int maximumToys(int[] prices, int k)
+        {
+            int count = 0;
+            Array.Sort(prices);
+            foreach(int price in prices)
+            {
+                if (k >= price)
+                {
+                    k -= price;
+                    count++;
+                }
+            }
+            return count;
         }
     }
 }
