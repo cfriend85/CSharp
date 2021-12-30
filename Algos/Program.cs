@@ -36,6 +36,7 @@ namespace Algos
             Console.WriteLine(marsExploration("OOSDSSOSOSWEWSOSOSOSOSOSOSSSSOSOSOSS"));
             breakingRecords(new int[] {17,45,41,60,17,41,76,43,51,40,89,92,34,6,64,7,37,81,32,50});
             Console.WriteLine(maximumToys(new int[] {33324560,77661073,31948330,21522343,97176507,5724692,24699815,12079402,6479353,28430129,42427721,57127004,26256001,29446837,65107604,9809008,65846182,8470661,13597655,360}, 100000));
+            Console.WriteLine(findMedian(new int[] {1,2,3,4,5,6,77,254,79,258,111,15,798,1001,55,41,498,38,15,1,396,7,51,10000,10001,52}));
         }
 
         public static int addChar(int n)
@@ -435,6 +436,18 @@ namespace Algos
                 }
             }
             return count;
+        }
+
+        public static int findMedian(int[] numbers)
+        {
+            Array.Sort(numbers);
+            int index = numbers.Length / 2;
+            if (numbers.Length % 2 == 0)
+            {
+                int indexValue = (numbers[index] + numbers[index-1]) / 2;
+                return indexValue;
+            }
+            return numbers[index];
         }
     }
 }
